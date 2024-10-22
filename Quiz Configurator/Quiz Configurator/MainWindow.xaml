@@ -124,7 +124,8 @@
                     <MenuItem Header="_File" >
 
                     <MenuItem x:Name="newQPMenu" 
-                                Header="_New Question Pack" >
+                                Header="_New Question Pack" 
+                              Click="newQPMenu_Click">
                         <MenuItem.Icon>
                             <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
                         </MenuItem.Icon>
@@ -149,7 +150,8 @@
 
                         <MenuItem x:Name="importantQuestionsMenu" 
                                 Header="_Important Questions"
-                                  InputGestureText="Ctrl+I">
+                                  InputGestureText="Ctrl+I"
+                                  Click="importantQuestionsMenu_Click">
                         <MenuItem.Icon>
                             <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
                         </MenuItem.Icon>
@@ -188,7 +190,8 @@
 
                     <MenuItem x:Name="packOptionsMenu" 
                                 Header="_Pack Options" 
-                                  InputGestureText="Ctrl+O">
+                                  InputGestureText="Ctrl+O"
+                              Click="packOptionsMenu_Click">
                         <MenuItem.Icon>
                             <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
                         </MenuItem.Icon>
