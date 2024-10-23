@@ -3,235 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Quiz_Configurator"
+        xmlns:local="clr-namespace:Quiz_Configurator" xmlns:view="clr-namespace:Quiz_Configurator.View"
         mc:Ignorable="d"
         Title="Quiz Configurator" Height="500" Width="800" MinHeight="450" MinWidth="700">
-    <Grid ShowGridLines="false">
+    <Grid>
+
 
         <!--Grid definitions-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--Left Column-->
-        <Label Content="Default Question Pack"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Center"
-                   Grid.Row="1"/>
-        <StackPanel HorizontalAlignment="Right"
-                        Orientation="Horizontal"
-                        Grid.Row="1">
 
-            <Button Height="15"
-                    Width="15"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Grid.Row="1"
-                    Margin="5"/>
-            <Button Height="15"
-                    Width="15"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Grid.Row="1"
-                    />
-            <Button Height="15"
-                    Width="15"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Grid.Row="1"
-                    Margin="5"/>
-
-        </StackPanel>
+        <view:MenuView />
+        <view:ConfigurationView Grid.Row="1"/>
 
 
-        <ListBox Grid.Row="2"
-                 Margin="5"
-                 BorderThickness="1"
-                 Grid.RowSpan="9">
-
-        </ListBox>
-
-        <!--Right Column-->
-
-
-        <!--Question-->
-
-        <Label Grid.Row="2"
-                   Grid.Column="1"
-                   Content="Question:" 
-                   FontWeight="Bold"
-                   Margin="20 0 "/>
-
-        <TextBox Grid.Row="3" Grid.Column="1"
-                     AcceptsReturn="True"
-                     Margin="20 0 20 20"/>
-        
-        
-        <!--Answers-->
-
-        <StackPanel Grid.Row="4"
-                    Grid.Column="2"
-                    Margin="20 0 20 0"
-                    Grid.RowSpan="4">
-            
-            <StackPanel  >
-                <Label Content="Correct Answer:"
-                        FontWeight="Bold"/>
-                <TextBox />
-            </StackPanel>
-
-            <StackPanel >
-                <Label Content="First Incorrect Answer:"
-                        FontWeight="Bold"/>
-                <TextBox />
-            </StackPanel>
-            
-            <StackPanel>
-                <Label Content="Second Incorrect Answer:"
-                        FontWeight="Bold"/>
-                <TextBox />
-            </StackPanel>
-
-            <StackPanel>
-                <Label Content="Third Incorrect Answer:"
-                        FontWeight="Bold"/>
-                <TextBox />
-            </StackPanel>
-
-
-        </StackPanel>
-
-
-        <!--Dockpanel-->
-
-
-        <DockPanel Grid.ColumnSpan="2">
-            <Menu DockPanel.Dock="Top">
-                <!--File Menu-->
-
-                    <MenuItem Header="_File" >
-
-                    <MenuItem x:Name="newQPMenu" 
-                                Header="_New Question Pack" 
-                              Click="newQPMenu_Click">
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                        <MenuItem x:Name="selectQPMenu"
-                                Header="_Select Question Pack"
-                                  >
-                            <MenuItem Header="Default Question Pack"/>
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                        <MenuItem x:Name="deleteQPMenu" 
-                                Header="_Delete Question Pack" >
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                    <Separator/>
-
-                        <MenuItem x:Name="importantQuestionsMenu" 
-                                Header="_Important Questions"
-                                  InputGestureText="Ctrl+I"
-                                  Click="importantQuestionsMenu_Click">
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                    <Separator/>
-
-                        <MenuItem x:Name="exitMenu" 
-                                Header="_Exit"
-                                  InputGestureText="Alt+F4">
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                </MenuItem>
-                <!--Edit Menu-->
-
-                    <MenuItem Header="_Edit" >
-
-                        <MenuItem x:Name="addQuestionMenu" 
-                                Header="_Add Question" 
-                                  InputGestureText="Insert">
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                    <MenuItem x:Name="removeQuestionMenu"
-                                Header="_Remove Question"
-                                  InputGestureText="Delete">
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                    <MenuItem x:Name="packOptionsMenu" 
-                                Header="_Pack Options" 
-                                  InputGestureText="Ctrl+O"
-                              Click="packOptionsMenu_Click">
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                </MenuItem>
-
-
-                <!--View Menu-->
-
-                    <MenuItem Header="_View" >
-
-                        <MenuItem x:Name="playMenu" 
-                                Header="_Play" 
-                                  InputGestureText="Ctrl+P">
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                    <MenuItem x:Name="editMenu"
-                                Header="_Edit"
-                                  InputGestureText="Ctrl+E">
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                    <MenuItem x:Name="fullscreenMenu" 
-                                Header="_Fullscreen" 
-                                  InputGestureText="Alt+Enter">
-                        <MenuItem.Icon>
-                            <Image Source="https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-
-                </MenuItem>
-            </Menu>
-
-        </DockPanel>
 
     </Grid>
 </Window>

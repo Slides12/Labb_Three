@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ZB90vUvZ8UIZSAMkrwnZoUrGIk5NtBb3RWiPOwvnJ4kFswKyhHV5HnIG7Inj7+nZ+lxWpCz/1xz+U+67DrPDEQ==",
+  "dgSpecHash": "896Ftubqpk1P7+q/z0lZvtFpa0nSUdLcG6LQnTLqxzdh3R5VxEAj2lNDIuexl5NYefE6G7f3FzzRaIzf/YKVvg==",
   "success": true,
   "projectFilePath": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\djoha\\.nuget\\packages\\fontawesome.sharp\\6.6.0\\fontawesome.sharp.6.6.0.nupkg.sha512"
+  ],
   "logs": []
 }

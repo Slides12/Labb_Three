@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\App.xaml
-4-1883040112
+7829026077
 
-7-566022342
-198155382431
-MainWindow.xaml;Windows\ImportQuestions.xaml;Windows\NewPack.xaml;Windows\PackOptions.xaml;
+171611999469
+208204164832
+MainWindow.xaml;View\ConfigurationView.xaml;View\MenuView.xaml;View\PlayerView.xaml;Windows\ImportQuestions.xaml;Windows\NewPack.xaml;Windows\PackOptions.xaml;
 
 False
 

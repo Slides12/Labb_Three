@@ -7,6 +7,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\ConfigurationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MenuView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PlayerView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\ImportQuestions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,6 +28,15 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ConfigurationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MenuView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PlayerView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\ImportQuestions.xaml">
