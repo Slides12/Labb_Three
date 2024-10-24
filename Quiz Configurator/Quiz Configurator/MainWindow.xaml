@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:Quiz_Configurator" xmlns:view="clr-namespace:Quiz_Configurator.View"
         mc:Ignorable="d"
         Title="Quiz Configurator" Height="500" Width="800" MinHeight="450" MinWidth="700">
+    <Window.InputBindings>
+        <KeyBinding Key="P" Modifiers="Ctrl" Command="{Binding PlayerViewModel.UpdateButtonCommand}"/>
+    </Window.InputBindings>
     <Grid>
+
 
 
         <!--Grid definitions-->
@@ -18,7 +22,9 @@
 
 
         <view:MenuView />
-        <view:ConfigurationView Grid.Row="1"/>
+        <!--<view:ConfigurationView Grid.Row="1"/>-->
+        <view:PlayerView Grid.Row="1"/>
+
 
 
 

@@ -1,7 +1,8 @@
 ﻿namespace Quiz_Configurator.Viewmodel
 {
-    class ConfigurationViewModel
+    class ConfigurationViewModel : ViewModelBase
     {
+
         private readonly MainWindowViewModel mainWindowViewModel;
 
 
@@ -9,5 +10,7 @@
         {
             this.mainWindowViewModel = mainWindowViewModel;
         }
+
+        public QuestionPackViewModel? ActivePack { get => mainWindowViewModel.ActivePack; }
     }
 }

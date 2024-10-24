@@ -11,7 +11,6 @@
         <!--Dockpanel-->
 
 
-        <DockPanel Grid.ColumnSpan="2">
             <Menu DockPanel.Dock="Top">
                 <!--File Menu-->
 
@@ -76,7 +75,8 @@
 
                     <MenuItem x:Name="playMenu" 
                         Header="_Play" 
-                          InputGestureText="Ctrl+P"/>
+                          InputGestureText="Ctrl+P"
+                              Command="{Binding PlayerViewModel.UpdateButtonCommand}"/> 
 
 
                     <MenuItem x:Name="editMenu"
@@ -92,6 +92,5 @@
                 </MenuItem>
             </Menu>
 
-        </DockPanel>
     </Grid>
 </UserControl>

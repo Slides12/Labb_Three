@@ -19,12 +19,14 @@ namespace Quiz_Configurator.Viewmodel
             {
                 _activePack = value;
                 RaiseProperyChanged();
+                ConfigurationViewModel?.RaiseProperyChanged("ActivePack");
             }
         }
 
         public MainWindowViewModel()
         {
-            ActivePack = new QuestionPackViewModel(new QuestionPack("My Question pack"));
+            ActivePack = new QuestionPackViewModel(new QuestionPack("My Question pack")); //Skall inte sättas här sen, skall sätta den aktiva packen, inte "My question Pack"
+
             PlayerViewModel = new PlayerViewModel(this);
             ConfigurationViewModel = new ConfigurationViewModel(this);
         }
