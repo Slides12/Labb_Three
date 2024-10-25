@@ -12,7 +12,6 @@ namespace Quiz_Configurator
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
-
         }
 
 

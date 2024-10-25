@@ -16,13 +16,13 @@
     <Compile Update="View\PlayerView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\CreateNewPackDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\ImportQuestions.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Windows\NewPack.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Windows\PackOptions.xaml.cs">
+    <Compile Update="Windows\PackOptionsDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -39,13 +39,13 @@
     <Page Update="View\PlayerView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Windows\CreateNewPackDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Windows\ImportQuestions.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Windows\NewPack.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Windows\PackOptions.xaml">
+    <Page Update="Windows\PackOptionsDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

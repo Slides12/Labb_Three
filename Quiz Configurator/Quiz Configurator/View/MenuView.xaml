@@ -11,38 +11,42 @@
         <!--Dockpanel-->
 
 
-            <Menu DockPanel.Dock="Top">
+            <Menu >
                 <!--File Menu-->
 
                 <MenuItem Header="_File" >
 
                     <MenuItem x:Name="newQPMenu" 
-                        Header="_New Question Pack" 
-                      />
+                              Header="_New Question Pack" 
+                              Icon="{fa:Icon Folderplus}"
+                              Command="{Binding Path=AddPackCommand}"/>
 
 
                     <MenuItem x:Name="selectQPMenu"
                         Header="_Select Question Pack"
-                          Icon="{fa:Icon FolderOpen}">
-                        <MenuItem Header="Default Question Pack"/>
+                          Icon="{fa:Icon FolderOpen}"
+                              ItemsSource="{Binding Path=Packs }"
+                              DisplayMemberPath="Name">
                     </MenuItem>
 
                     <MenuItem x:Name="deleteQPMenu" 
-                        Header="_Delete Question Pack" />
+                        Header="_Delete Question Pack" 
+                              Icon="{fa:Icon Folderminus}"/>
 
                     <Separator/>
 
-                    <MenuItem x:Name="importantQuestionsMenu" 
-                        Header="_Important Questions"
+                    <MenuItem x:Name="importQuestionsMenu" 
+                        Header="_Import Questions"
                           InputGestureText="Ctrl+I"
-                          />
+                          Icon="{fa:Icon cloudarrowdown}"/>
 
 
                     <Separator/>
 
                     <MenuItem x:Name="exitMenu" 
                         Header="E_xit"
-                          InputGestureText="Alt+F4"/>
+                          InputGestureText="Alt+F4"
+                              Icon="{fa:Icon dooropen}"/>
 
 
                 </MenuItem>
@@ -52,18 +56,20 @@
 
                     <MenuItem x:Name="addQuestionMenu" 
                         Header="_Add Question" 
-                          InputGestureText="Insert"/>
+                          InputGestureText="Insert"
+                              Icon="{fa:Icon plus}"/>
 
 
                     <MenuItem x:Name="removeQuestionMenu"
                         Header="_Remove Question"
-                          InputGestureText="Delete"/>
+                          InputGestureText="Delete"
+                              Icon="{fa:Icon minus}"/>
 
 
                     <MenuItem x:Name="packOptionsMenu" 
                         Header="Pack _Options" 
                           InputGestureText="Ctrl+O"
-                      />
+                      Icon="{fa:Icon toolbox}"/>
 
 
                 </MenuItem>
@@ -76,17 +82,20 @@
                     <MenuItem x:Name="playMenu" 
                         Header="_Play" 
                           InputGestureText="Ctrl+P"
-                              Command="{Binding PlayerViewModel.UpdateButtonCommand}"/> 
+                              Command="{Binding PlayerViewModel.UpdateButtonCommand}"
+                              Icon="{fa:Icon play}"/> 
 
 
                     <MenuItem x:Name="editMenu"
                         Header="_Edit"
-                          InputGestureText="Ctrl+E"/>
+                          InputGestureText="Ctrl+E"
+                              Icon="{fa:Icon gear}"/>
 
 
                     <MenuItem x:Name="fullscreenMenu" 
                         Header="_Fullscreen" 
-                          InputGestureText="Alt+Enter"/>
+                          InputGestureText="Alt+Enter"
+                              Icon="{fa:Icon expand}"/>
 
 
                 </MenuItem>

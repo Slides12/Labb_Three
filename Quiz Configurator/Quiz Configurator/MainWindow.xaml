@@ -22,8 +22,8 @@
 
 
         <view:MenuView />
-        <!--<view:ConfigurationView Grid.Row="1"/>-->
-        <view:PlayerView Grid.Row="1"/>
+        <view:ConfigurationView x:Name="configView" Grid.Row="1"/>
+        <!--<view:PlayerView Grid.Row="1"/>-->
 
 
 

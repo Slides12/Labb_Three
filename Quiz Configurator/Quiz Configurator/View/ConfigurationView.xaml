@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              DataContext="{Binding ConfigurationViewModel}"
              xmlns:local="clr-namespace:Quiz_Configurator.View"
              mc:Ignorable="d" 
@@ -38,24 +39,29 @@
              HorizontalAlignment="Right"
              VerticalAlignment="Center"
              Grid.Row="1"
-             Margin="5"/>
+             Margin="5"
+                    Content="{fa:Icon toolbox}"/>
             <Button Height="15"
              Width="15"
              HorizontalAlignment="Right"
              VerticalAlignment="Center"
              Grid.Row="1"
-             />
+             Content="{fa:Icon plus}"
+                    Command="{Binding NewQuestionCommand}"/>
             <Button Height="15"
              Width="15"
              HorizontalAlignment="Right"
              VerticalAlignment="Center"
              Grid.Row="1"
-             Margin="5"/>
+             Margin="5"
+             Content="{fa:Icon minus}"/>
 
         </StackPanel>
 
 
-        <ListBox Grid.Row="1"
+        <ListBox ItemsSource="{Binding ActivePack.Questions}"
+                 DisplayMemberPath="Query"
+            Grid.Row="1"
           Margin="5"
           BorderThickness="1"
           Grid.RowSpan="9">
@@ -73,9 +79,12 @@
             FontWeight="Bold"
             Margin="20 0 "/>
 
-        <TextBox Grid.Row="2" Grid.Column="1"
+        <TextBox x:Name="questionTextBox" 
+                 Grid.Row="2" 
+                 Grid.Column="1"
               AcceptsReturn="True"
-              Margin="20 0 20 20"/>
+              Margin="20 0 20 20"
+                 Text="New Question"/>
 
 
         <!--Answers-->
@@ -88,25 +97,25 @@
             <StackPanel  >
                 <Label Content="Correct Answer:"
                  FontWeight="Bold"/>
-                <TextBox />
+                <TextBox x:Name="correctQTextBox"/>
             </StackPanel>
 
             <StackPanel >
                 <Label Content="First Incorrect Answer:"
                  FontWeight="Bold"/>
-                <TextBox />
+                <TextBox x:Name="wrong1TextBox"/>
             </StackPanel>
 
             <StackPanel>
                 <Label Content="Second Incorrect Answer:"
                  FontWeight="Bold"/>
-                <TextBox />
+                <TextBox x:Name="wrong2TextBox"/>
             </StackPanel>
 
             <StackPanel>
                 <Label Content="Third Incorrect Answer:"
                  FontWeight="Bold"/>
-                <TextBox />
+                <TextBox x:Name="wrong3TextBox"/>
             </StackPanel>
 
 

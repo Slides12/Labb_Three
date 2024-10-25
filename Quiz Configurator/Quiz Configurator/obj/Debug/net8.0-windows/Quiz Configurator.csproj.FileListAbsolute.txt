@@ -19,10 +19,6 @@ C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\D
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.pdb
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.genruntimeconfig.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\ref\Quiz Configurator.dll
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\NewPack.g.cs
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\NewPack.baml
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\PackOptions.g.cs
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\PackOptions.baml
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\ImportQuestions.g.cs
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\ImportQuestions.baml
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\ConfigurationView.g.cs
@@ -35,3 +31,7 @@ C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\D
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Con.31143504.Up2Date
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\PackOptionsDialog.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\PackOptionsDialog.baml
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\CreateNewPackDialog.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\CreateNewPackDialog.baml
