@@ -19,19 +19,31 @@
                     <MenuItem x:Name="newQPMenu" 
                               Header="_New Question Pack" 
                               Icon="{fa:Icon Folderplus}"
-                              Command="{Binding Path=AddPackCommand}"/>
+                              Command="{Binding Path=NewPackCommand}"/>
 
 
-                    <MenuItem x:Name="selectQPMenu"
+                <MenuItem x:Name="selectQPMenu"
                         Header="_Select Question Pack"
                           Icon="{fa:Icon FolderOpen}"
                               ItemsSource="{Binding Path=Packs }"
                               DisplayMemberPath="Name">
-                    </MenuItem>
 
-                    <MenuItem x:Name="deleteQPMenu" 
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="Command"
+                                    Value="{Binding DataContext.SetActivePackCommand, 
+                                    RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
+                            <Setter Property="CommandParameter" Value="{Binding}" />
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                    
+                </MenuItem>
+
+
+                <MenuItem x:Name="deleteQPMenu" 
                         Header="_Delete Question Pack" 
-                              Icon="{fa:Icon Folderminus}"/>
+                              Icon="{fa:Icon Folderminus}"
+                              />
 
                     <Separator/>
 
@@ -57,13 +69,15 @@
                     <MenuItem x:Name="addQuestionMenu" 
                         Header="_Add Question" 
                           InputGestureText="Insert"
-                              Icon="{fa:Icon plus}"/>
+                              Icon="{fa:Icon plus}"
+                              Command="{Binding ConfigurationViewModel.NewQuestionCommand}"/>
 
 
                     <MenuItem x:Name="removeQuestionMenu"
                         Header="_Remove Question"
                           InputGestureText="Delete"
-                              Icon="{fa:Icon minus}"/>
+                              Icon="{fa:Icon minus}"
+                              Command="{Binding ConfigurationViewModel.DeleteQuestionCommand}"/>
 
 
                     <MenuItem x:Name="packOptionsMenu" 

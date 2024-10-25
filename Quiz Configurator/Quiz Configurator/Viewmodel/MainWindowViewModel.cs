@@ -12,6 +12,8 @@ namespace Quiz_Configurator.Viewmodel
         public ConfigurationViewModel ConfigurationViewModel { get; }
 
         public DelegateCommand NewPackCommand { get; }
+        public DelegateCommand SetActivePackCommand { get; }
+
 
 
         private QuestionPackViewModel? _activePack;
@@ -32,6 +34,8 @@ namespace Quiz_Configurator.Viewmodel
             Packs = new ObservableCollection<QuestionPackViewModel>();
             QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
             NewPackCommand = new DelegateCommand(AddPack);
+            SetActivePackCommand = new DelegateCommand(SetActivePack);
+
             Packs.Add(qp);
             ActivePack = qp;//Skall inte sättas här sen, skall sätta den aktiva packen, inte "My question Pack"
 
@@ -39,6 +43,15 @@ namespace Quiz_Configurator.Viewmodel
             PlayerViewModel = new PlayerViewModel(this);
 
             ConfigurationViewModel = new ConfigurationViewModel(this);
+        }
+
+        private void SetActivePack(object obj)
+        {
+            if (obj is QuestionPackViewModel selectedPack)
+            {
+                ActivePack = selectedPack;
+                RaiseProperyChanged(nameof(ActivePack));  
+            }
         }
 
         private void AddPack(object obj)
@@ -50,8 +63,9 @@ namespace Quiz_Configurator.Viewmodel
 
             if (result == true)
             {
-
-                Packs.Add(new QuestionPackViewModel(new QuestionPack(createNewPackDialog.textBox.Text, (Difficulty)createNewPackDialog.comboBox.SelectedValue, (int)createNewPackDialog.slider.Value)));
+                QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack(createNewPackDialog.textBox.Text, (Difficulty)createNewPackDialog.comboBox.SelectedValue, (int)createNewPackDialog.slider.Value));
+                ActivePack = qp;
+                Packs.Add(qp);
             }
         }
     }

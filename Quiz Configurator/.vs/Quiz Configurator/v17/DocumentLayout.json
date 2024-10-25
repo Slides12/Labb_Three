@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|c:\\users\\djoha\\source\\repos\\labb_three\\quiz configurator\\quiz configurator\\view\\configurationview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|solutionrelative:quiz configurator\\view\\configurationview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|c:\\users\\djoha\\source\\repos\\labb_three\\quiz configurator\\quiz configurator\\view\\menuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|solutionrelative:quiz configurator\\view\\menuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|c:\\users\\djoha\\source\\repos\\labb_three\\quiz configurator\\quiz configurator\\viewmodel\\configurationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|solutionrelative:quiz configurator\\viewmodel\\configurationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|c:\\users\\djoha\\source\\repos\\labb_three\\quiz configurator\\quiz configurator\\viewmodel\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\quiz configurator\\viewmodel\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|solutionrelative:quiz configurator\\viewmodel\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|c:\\users\\djoha\\source\\repos\\labb_three\\quiz configurator\\quiz configurator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|solutionrelative:quiz configurator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|c:\\users\\djoha\\source\\repos\\labb_three\\quiz configurator\\quiz configurator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|solutionrelative:quiz configurator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|c:\\users\\djoha\\source\\repos\\labb_three\\quiz configurator\\quiz configurator\\model\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE49176F-694E-41A2-A8D1-7375A0B201C2}|Quiz Configurator\\Quiz Configurator.csproj|solutionrelative:quiz configurator\\model\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,82 +18,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Quiz Configurator\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Quiz Configurator\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T09:33:52.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Quiz Configurator\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\MainWindow.xaml",
-              "RelativeToolTip": "Quiz Configurator\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-25T09:32:59.878Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindowViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Viewmodel\\MainWindowViewModel.cs",
-              "RelativeDocumentMoniker": "Quiz Configurator\\Viewmodel\\MainWindowViewModel.cs",
-              "ToolTip": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Viewmodel\\MainWindowViewModel.cs",
-              "RelativeToolTip": "Quiz Configurator\\Viewmodel\\MainWindowViewModel.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACgAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T09:31:39.905Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ConfigurationView.xaml",
-              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\View\\ConfigurationView.xaml",
-              "RelativeDocumentMoniker": "Quiz Configurator\\View\\ConfigurationView.xaml",
-              "ToolTip": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\View\\ConfigurationView.xaml",
-              "RelativeToolTip": "Quiz Configurator\\View\\ConfigurationView.xaml",
+              "Title": "MenuView.xaml",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\View\\MenuView.xaml",
+              "RelativeDocumentMoniker": "Quiz Configurator\\View\\MenuView.xaml",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\View\\MenuView.xaml",
+              "RelativeToolTip": "Quiz Configurator\\View\\MenuView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-25T09:26:56.857Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Question.cs",
-              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Model\\Question.cs",
-              "RelativeDocumentMoniker": "Quiz Configurator\\Model\\Question.cs",
-              "ToolTip": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Model\\Question.cs",
-              "RelativeToolTip": "Quiz Configurator\\Model\\Question.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T09:26:49.907Z",
+              "WhenOpened": "2024-10-25T13:48:35.529Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ConfigurationViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Viewmodel\\ConfigurationViewModel.cs",
-              "RelativeDocumentMoniker": "Quiz Configurator\\Viewmodel\\ConfigurationViewModel.cs",
-              "ToolTip": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Viewmodel\\ConfigurationViewModel.cs",
-              "RelativeToolTip": "Quiz Configurator\\Viewmodel\\ConfigurationViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAxAAAA",
+              "Title": "MainWindowViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Viewmodel\\MainWindowViewModel.cs",
+              "RelativeDocumentMoniker": "Quiz Configurator\\Viewmodel\\MainWindowViewModel.cs",
+              "ToolTip": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Viewmodel\\MainWindowViewModel.cs",
+              "RelativeToolTip": "Quiz Configurator\\Viewmodel\\MainWindowViewModel.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAxwCQAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T09:16:14.003Z",
+              "WhenOpened": "2024-10-25T12:22:44.508Z",
               "EditorCaption": ""
             }
           ]

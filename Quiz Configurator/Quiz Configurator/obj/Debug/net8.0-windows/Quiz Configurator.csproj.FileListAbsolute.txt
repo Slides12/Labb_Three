@@ -3,35 +3,35 @@ C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\D
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.runtimeconfig.json
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.dll
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.pdb
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.csproj.AssemblyReference.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\ConfigurationView.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\MenuView.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\PlayerView.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\CreateNewPackDialog.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\ImportQuestions.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\PackOptionsDialog.g.cs
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator_MarkupCompile.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator_MarkupCompile.lref
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\ConfigurationView.baml
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\MenuView.baml
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\PlayerView.baml
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\CreateNewPackDialog.baml
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\ImportQuestions.baml
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\PackOptionsDialog.baml
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.g.resources
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.AssemblyInfoInputs.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.AssemblyInfo.cs
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.csproj.CoreCompileInputs.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.sourcelink.json
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Con.31143504.Up2Date
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.dll
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\refint\Quiz Configurator.dll
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.pdb
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.genruntimeconfig.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\ref\Quiz Configurator.dll
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\ImportQuestions.g.cs
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\ImportQuestions.baml
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\ConfigurationView.g.cs
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\MenuView.g.cs
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\PlayerView.g.cs
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\ConfigurationView.baml
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\MenuView.baml
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\PlayerView.baml
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.csproj.AssemblyReference.cache
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Con.31143504.Up2Date
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\PackOptionsDialog.g.cs
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\PackOptionsDialog.baml
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\CreateNewPackDialog.g.cs
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Windows\CreateNewPackDialog.baml

@@ -24,5 +24,7 @@ namespace Quiz_Configurator.View
         {
             InitializeComponent();
         }
+
+       
     }
 }

@@ -16,5 +16,5 @@ C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\App.x
 208204164832
 MainWindow.xaml;View\ConfigurationView.xaml;View\MenuView.xaml;View\PlayerView.xaml;Windows\CreateNewPackDialog.xaml;Windows\ImportQuestions.xaml;Windows\PackOptionsDialog.xaml;
 
-False
+True
 
