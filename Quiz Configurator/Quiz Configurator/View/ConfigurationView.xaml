@@ -61,10 +61,10 @@
 
         <ListBox ItemsSource="{Binding ActivePack.Questions}"
                  DisplayMemberPath="Query"
-            Grid.Row="1"
-          Margin="5"
-          BorderThickness="1"
-          Grid.RowSpan="9">
+                 Grid.Row="1"
+                 Margin="5"
+                 BorderThickness="1"
+                 Grid.RowSpan="9">
 
         </ListBox>
 

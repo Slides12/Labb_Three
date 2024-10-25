@@ -32,10 +32,10 @@ namespace Quiz_Configurator.Viewmodel
         public MainWindowViewModel()
         {
             Packs = new ObservableCollection<QuestionPackViewModel>();
-            QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
             NewPackCommand = new DelegateCommand(AddPack);
             SetActivePackCommand = new DelegateCommand(SetActivePack);
 
+            QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
             Packs.Add(qp);
             ActivePack = qp;//Skall inte sättas här sen, skall sätta den aktiva packen, inte "My question Pack"
 
