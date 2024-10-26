@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Quiz_Configurator.Model;
+using System.Windows;
 
 namespace Quiz_Configurator.Windows
 {
@@ -10,6 +11,8 @@ namespace Quiz_Configurator.Windows
         public PackOptionsDialog()
         {
             InitializeComponent();
+            comboBox.ItemsSource = Enum.GetValues(typeof(Difficulty)).Cast<Difficulty>().ToList();
+            comboBox.SelectedIndex = 1;
         }
     }
 }

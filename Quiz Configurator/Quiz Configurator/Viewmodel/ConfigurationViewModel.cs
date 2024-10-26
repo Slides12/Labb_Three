@@ -1,5 +1,7 @@
 ﻿using Quiz_Configurator.Command;
 using Quiz_Configurator.Model;
+using Quiz_Configurator.Windows;
+using System.Windows.Controls;
 
 namespace Quiz_Configurator.Viewmodel
 {
@@ -10,6 +12,8 @@ namespace Quiz_Configurator.Viewmodel
         public DelegateCommand NewQuestionCommand { get; }
         public DelegateCommand DeleteQuestionCommand { get; }
         public DelegateCommand SetActiveQuestionCommand { get; }
+        public DelegateCommand PackOptionsCommand { get; }
+
 
 
 
@@ -32,8 +36,16 @@ namespace Quiz_Configurator.Viewmodel
             NewQuestionCommand = new DelegateCommand(NewQuestionButton);
             DeleteQuestionCommand = new DelegateCommand(DeleteQuestionButton);
             SetActiveQuestionCommand = new DelegateCommand(SetActiveQuestion);
+            PackOptionsCommand = new DelegateCommand(PackOptions);
 
+           
+        }
 
+        private void PackOptions(object obj)
+        {
+            PackOptionsDialog packOptionsDialog = new PackOptionsDialog() {DataContext = this};
+
+            packOptionsDialog.ShowDialog();
         }
 
         private void SetActiveQuestion(object obj)

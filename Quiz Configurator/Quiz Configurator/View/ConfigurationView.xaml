@@ -35,26 +35,30 @@
                  Grid.Row="0">
 
             <Button Height="15"
-             Width="15"
-             HorizontalAlignment="Right"
-             VerticalAlignment="Center"
-             Grid.Row="1"
-             Margin="5"
-                    Content="{fa:Icon toolbox}"/>
+                     Width="15"
+                     HorizontalAlignment="Right"
+                     VerticalAlignment="Center"
+                     Grid.Row="1"
+                     Margin="5"
+                     Content="{fa:Icon toolbox}"
+                     Command="{Binding PackOptionsCommand}"/>
+            
             <Button Height="15"
-             Width="15"
-             HorizontalAlignment="Right"
-             VerticalAlignment="Center"
-             Grid.Row="1"
-             Content="{fa:Icon plus}"
-                    Command="{Binding NewQuestionCommand}"/>
+                     Width="15"
+                     HorizontalAlignment="Right"
+                     VerticalAlignment="Center"
+                     Grid.Row="1"
+                     Content="{fa:Icon plus}"
+                     Command="{Binding NewQuestionCommand}"/>
+            
             <Button Height="15"
-             Width="15"
-             HorizontalAlignment="Right"
-             VerticalAlignment="Center"
-             Grid.Row="1"
-             Margin="5"
-             Content="{fa:Icon minus}"/>
+                     Width="15"
+                     HorizontalAlignment="Right"
+                     VerticalAlignment="Center"
+                     Grid.Row="1"
+                     Margin="5"
+                     Content="{fa:Icon minus}"
+                     Command="{Binding DeleteQuestionCommand}"/>
 
         </StackPanel>
 
@@ -64,7 +68,8 @@
                  Grid.Row="1"
                  Margin="5"
                  BorderThickness="1"
-                 Grid.RowSpan="9">
+                 Grid.RowSpan="9"
+                 SelectedItem="{Binding ActiveQuestion}">
 
         </ListBox>
 
@@ -74,17 +79,19 @@
         <!--Question-->
 
         <Label Grid.Row="1"
-            Grid.Column="1"
-            Content="Question:" 
-            FontWeight="Bold"
-            Margin="20 0 "/>
+                    Grid.Column="1"
+                    Content="Question:" 
+                    FontWeight="Bold"
+                    Margin="20 0 "
+               Visibility="{Binding ActiveQuestion, Converter={StaticResource nullToVisibilityConverter}}"/>
 
         <TextBox x:Name="questionTextBox" 
                  Grid.Row="2" 
                  Grid.Column="1"
               AcceptsReturn="True"
               Margin="20 0 20 20"
-                 Text="New Question"/>
+                 Text="{Binding ActiveQuestion.Query}"
+                 Visibility="{Binding ActiveQuestion, Converter={StaticResource nullToVisibilityConverter}}"/>
 
 
         <!--Answers-->
@@ -92,30 +99,31 @@
         <StackPanel Grid.Row="3"
              Grid.Column="2"
              Margin="20 0 20 0"
-             Grid.RowSpan="4">
+             Grid.RowSpan="4"
+                    Visibility="{Binding ActiveQuestion, Converter={StaticResource nullToVisibilityConverter}}">
 
             <StackPanel  >
                 <Label Content="Correct Answer:"
                  FontWeight="Bold"/>
-                <TextBox x:Name="correctQTextBox"/>
+                <TextBox Text="{Binding ActiveQuestion.CorrectAnswer}"/>
             </StackPanel>
 
             <StackPanel >
                 <Label Content="First Incorrect Answer:"
                  FontWeight="Bold"/>
-                <TextBox x:Name="wrong1TextBox"/>
+                <TextBox Text="{Binding ActiveQuestion.IncorrectAnswers[0]}"/>
             </StackPanel>
 
             <StackPanel>
                 <Label Content="Second Incorrect Answer:"
                  FontWeight="Bold"/>
-                <TextBox x:Name="wrong2TextBox"/>
+                <TextBox Text="{Binding ActiveQuestion.IncorrectAnswers[1]}"/>
             </StackPanel>
 
             <StackPanel>
                 <Label Content="Third Incorrect Answer:"
                  FontWeight="Bold"/>
-                <TextBox x:Name="wrong3TextBox"/>
+                <TextBox Text="{Binding ActiveQuestion.IncorrectAnswers[2]}"/>
             </StackPanel>
 
 

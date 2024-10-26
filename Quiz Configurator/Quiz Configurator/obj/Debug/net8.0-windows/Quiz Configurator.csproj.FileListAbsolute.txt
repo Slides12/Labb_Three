@@ -35,3 +35,4 @@ C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\D
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.pdb
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.genruntimeconfig.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\ref\Quiz Configurator.dll
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\App.baml

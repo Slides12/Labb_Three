@@ -9,13 +9,11 @@
     <Grid>
         <StackPanel Margin="10 0 10 10" Grid.ColumnSpan="3">
             <Label Content="Pack Name:" FontWeight="Bold"/>
-            <TextBox Text="Default Question Pack"/>
+            <TextBox Text="{Binding ActivePack.Name, Mode=TwoWay}"/>
 
             <Label Content="Difficulty:" FontWeight="Bold"/>
-            <ComboBox>
-                <ComboBoxItem Content="Easy"/>
-                <ComboBoxItem Content="Medium" IsSelected="True"/>
-                <ComboBoxItem Content="Hard"/>
+            <ComboBox x:Name="comboBox">
+                
             </ComboBox>
             <DockPanel >
                 <Label Content="Time Limit:" FontWeight="Bold"/>
@@ -32,7 +30,7 @@
              TickFrequency="5" 
              TickPlacement="BottomRight" 
              IsSnapToTickEnabled="True"
-             Value="30"/>
+             Value="{Binding ActivePack.TimeLimitInSeconds, Mode=TwoWay}"/>
 
 
 

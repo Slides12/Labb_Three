@@ -26,7 +26,19 @@
                         Header="_Select Question Pack"
                           Icon="{fa:Icon FolderOpen}"
                               ItemsSource="{Binding Path=Packs }"
-                              DisplayMemberPath="Name">
+                              >
+                    <MenuItem.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding  StringFormat="{}{0} ({1})">
+                                        <Binding Path="Name"/>
+                                        <Binding Path="Difficulty"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </MenuItem.ItemTemplate>
 
                     <MenuItem.ItemContainerStyle>
                         <Style TargetType="MenuItem">

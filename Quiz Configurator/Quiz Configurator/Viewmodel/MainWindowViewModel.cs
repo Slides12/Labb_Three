@@ -11,8 +11,12 @@ namespace Quiz_Configurator.Viewmodel
         public PlayerViewModel PlayerViewModel { get; }
         public ConfigurationViewModel ConfigurationViewModel { get; }
 
+
+
         public DelegateCommand NewPackCommand { get; }
         public DelegateCommand SetActivePackCommand { get; }
+
+
 
 
 
@@ -35,15 +39,18 @@ namespace Quiz_Configurator.Viewmodel
             NewPackCommand = new DelegateCommand(AddPack);
             SetActivePackCommand = new DelegateCommand(SetActivePack);
 
+
             QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
             Packs.Add(qp);
-            ActivePack = qp;//Skall inte sättas här sen, skall sätta den aktiva packen, inte "My question Pack"
+            ActivePack = qp;
 
 
             PlayerViewModel = new PlayerViewModel(this);
 
             ConfigurationViewModel = new ConfigurationViewModel(this);
         }
+
+      
 
         private void SetActivePack(object obj)
         {
