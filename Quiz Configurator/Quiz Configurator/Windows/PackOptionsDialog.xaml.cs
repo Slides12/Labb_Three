@@ -1,5 +1,6 @@
 ﻿using Quiz_Configurator.Model;
 using System.Windows;
+using System.Windows.Data;
 
 namespace Quiz_Configurator.Windows
 {

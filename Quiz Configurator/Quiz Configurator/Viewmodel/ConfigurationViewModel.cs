@@ -33,12 +33,12 @@ namespace Quiz_Configurator.Viewmodel
         public ConfigurationViewModel(MainWindowViewModel? mainWindowViewModel)
         {
             this.mainWindowViewModel = mainWindowViewModel;
+
             NewQuestionCommand = new DelegateCommand(NewQuestionButton);
             DeleteQuestionCommand = new DelegateCommand(DeleteQuestionButton);
             SetActiveQuestionCommand = new DelegateCommand(SetActiveQuestion);
             PackOptionsCommand = new DelegateCommand(PackOptions);
 
-           
         }
 
         private void PackOptions(object obj)
@@ -46,6 +46,9 @@ namespace Quiz_Configurator.Viewmodel
             PackOptionsDialog packOptionsDialog = new PackOptionsDialog() {DataContext = this};
 
             packOptionsDialog.ShowDialog();
+
+            ActivePack.Difficulty = (Difficulty)packOptionsDialog.comboBox.SelectedItem;
+
         }
 
         private void SetActiveQuestion(object obj)
