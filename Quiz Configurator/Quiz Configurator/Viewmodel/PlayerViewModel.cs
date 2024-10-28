@@ -8,7 +8,7 @@ namespace Quiz_Configurator.Viewmodel
         private readonly MainWindowViewModel mainWindowViewModel;
 
         public DelegateCommand UpdateButtonCommand { get; }
-
+        public int TimerValue { get; private set; }
 
         public string TestData
         {
@@ -26,12 +26,14 @@ namespace Quiz_Configurator.Viewmodel
         {
             this.mainWindowViewModel = mainWindowViewModel;
 
+            TimerValue = ActivePack.TimeLimitInSeconds;
+
             TestData = "Star value:";
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
-            //timer.Start();
+            timer.Start();
 
             UpdateButtonCommand = new DelegateCommand(UpdateButton, CanUpdateButton);
         }
@@ -49,7 +51,8 @@ namespace Quiz_Configurator.Viewmodel
 
         private void Timer_Tick(object? sender, EventArgs e)
         {
-
+            TimerValue--;
+            RaiseProperyChanged();
         }
 
         public QuestionPackViewModel? ActivePack { get => mainWindowViewModel.ActivePack; }

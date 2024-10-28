@@ -1,5 +1,6 @@
 ﻿using Quiz_Configurator.Command;
 using Quiz_Configurator.Model;
+using Quiz_Configurator.View;
 using Quiz_Configurator.Windows;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -16,10 +17,11 @@ namespace Quiz_Configurator.Viewmodel
 
 
         public DelegateCommand NewPackCommand { get; }
-        public DelegateCommand SetActiveWindowCommand { get; }
         public DelegateCommand SetActivePackCommand { get; }
 
 
+        public DelegateCommand SetPlayerViewCommand { get; }
+        public DelegateCommand SetConfigViewCommand { get; }
 
 
 
@@ -37,33 +39,33 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
-        private Visibility _visibility;
-        public Visibility Visibility
+        private Visibility _playerVisibility;
+        public Visibility PlayerVisibility
         {
             get
             {
-                return _visibility;
+                return _playerVisibility;
             }
             set
             {
-                _visibility = value;
+                _playerVisibility = value;
 
-                RaiseProperyChanged("Visibility");
+                RaiseProperyChanged("PlayerVisibility");
             }
         }
 
-        private Visibility _visibility1;
-        public Visibility Visibility1
+        private Visibility configVisibility;
+        public Visibility ConfigVisibility
         {
             get
             {
-                return _visibility1;
+                return configVisibility;
             }
             set
             {
-                _visibility1 = value;
+                configVisibility = value;
 
-                RaiseProperyChanged("Visibility1");
+                RaiseProperyChanged("ConfigVisibility");
             }
         }
 
@@ -72,9 +74,11 @@ namespace Quiz_Configurator.Viewmodel
             Packs = new ObservableCollection<QuestionPackViewModel>();
             NewPackCommand = new DelegateCommand(AddPack);
             SetActivePackCommand = new DelegateCommand(SetActivePack);
-            SetActiveWindowCommand = new DelegateCommand(SetActiveWindow);
+            SetPlayerViewCommand = new DelegateCommand(SetPlayerView);
+            SetConfigViewCommand = new DelegateCommand(SetConfigView);
 
-
+            ConfigVisibility = Visibility.Visible;
+            PlayerVisibility = Visibility.Hidden;
 
             QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
             Packs.Add(qp);
@@ -86,10 +90,20 @@ namespace Quiz_Configurator.Viewmodel
             ConfigurationViewModel = new ConfigurationViewModel(this);
         }
 
-        private void SetActiveWindow(object obj)
+        private void SetConfigView(object obj)
         {
-            Visibility = Visibility.Hidden;
-            RaiseProperyChanged();
+            ConfigVisibility = Visibility.Visible;
+            PlayerVisibility = Visibility.Hidden;
+            RaiseProperyChanged(nameof(ConfigVisibility));
+            RaiseProperyChanged(nameof(PlayerVisibility));
+        }
+
+        private void SetPlayerView(object obj)
+        {
+            ConfigVisibility = Visibility.Hidden;
+            PlayerVisibility = Visibility.Visible;
+            RaiseProperyChanged(nameof(ConfigVisibility));
+            RaiseProperyChanged(nameof(PlayerVisibility));
         }
 
         private void SetActivePack(object obj)

@@ -45,7 +45,7 @@
         </StackPanel>
 
         <!--Timer-->
-        <Label Content="30" FontWeight="Bold" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="{Binding PlayerViewModel.TimerValue}" FontWeight="Bold" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1"/>
 
     </Grid>
 </UserControl>
