@@ -12,8 +12,8 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\App.xaml
 71150306583
 
-22634821679
-208204164832
+21-290194422
+208-210750697
 MainWindow.xaml;View\ConfigurationView.xaml;View\MenuView.xaml;View\PlayerView.xaml;Windows\CreateNewPackDialog.xaml;Windows\ImportQuestions.xaml;Windows\PackOptionsDialog.xaml;
 
 True

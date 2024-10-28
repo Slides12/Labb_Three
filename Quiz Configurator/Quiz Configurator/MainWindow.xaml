@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Quiz Configurator" Height="500" Width="800" MinHeight="450" MinWidth="700">
     <Window.InputBindings>
-        <KeyBinding Key="P" Modifiers="Ctrl" Command="{Binding PlayerViewModel.UpdateButtonCommand}"/>
+        <KeyBinding Key="P" Modifiers="Ctrl" Command="{Binding SetActiveWindowCommand}"/>
+        <KeyBinding Key="E" Modifiers="Ctrl" Command="{Binding SetActiveWindowCommand}"/>
         <KeyBinding Key="Insert"  Command="{Binding ConfigurationViewModel.NewQuestionCommand}"/>
         <KeyBinding Key="Delete"  Command="{Binding ConfigurationViewModel.DeleteQuestionCommand}"/>
 
@@ -26,7 +27,7 @@
 
         <view:MenuView />
         <view:ConfigurationView Grid.Row="1"/>
-        <!--<view:PlayerView Grid.Row="1"/>-->
+        <view:PlayerView Grid.Row="1" Visibility="{Binding Visibility}"/>
 
 
 

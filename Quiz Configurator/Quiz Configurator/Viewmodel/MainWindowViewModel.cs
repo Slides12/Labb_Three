@@ -2,6 +2,8 @@
 using Quiz_Configurator.Model;
 using Quiz_Configurator.Windows;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Quiz_Configurator.Viewmodel
 {
@@ -14,7 +16,9 @@ namespace Quiz_Configurator.Viewmodel
 
 
         public DelegateCommand NewPackCommand { get; }
+        public DelegateCommand SetActiveWindowCommand { get; }
         public DelegateCommand SetActivePackCommand { get; }
+
 
 
 
@@ -33,11 +37,43 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
+        private Visibility _visibility;
+        public Visibility Visibility
+        {
+            get
+            {
+                return _visibility;
+            }
+            set
+            {
+                _visibility = value;
+
+                RaiseProperyChanged("Visibility");
+            }
+        }
+
+        private Visibility _visibility1;
+        public Visibility Visibility1
+        {
+            get
+            {
+                return _visibility1;
+            }
+            set
+            {
+                _visibility1 = value;
+
+                RaiseProperyChanged("Visibility1");
+            }
+        }
+
         public MainWindowViewModel()
         {
             Packs = new ObservableCollection<QuestionPackViewModel>();
             NewPackCommand = new DelegateCommand(AddPack);
             SetActivePackCommand = new DelegateCommand(SetActivePack);
+            SetActiveWindowCommand = new DelegateCommand(SetActiveWindow);
+
 
 
             QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
@@ -50,7 +86,11 @@ namespace Quiz_Configurator.Viewmodel
             ConfigurationViewModel = new ConfigurationViewModel(this);
         }
 
-      
+        private void SetActiveWindow(object obj)
+        {
+            Visibility = Visibility.Hidden;
+            RaiseProperyChanged();
+        }
 
         private void SetActivePack(object obj)
         {
@@ -75,5 +115,6 @@ namespace Quiz_Configurator.Viewmodel
                 Packs.Add(qp);
             }
         }
+
     }
 }
