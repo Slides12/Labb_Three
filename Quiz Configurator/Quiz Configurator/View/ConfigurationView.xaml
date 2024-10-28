@@ -64,12 +64,21 @@
 
 
         <ListBox ItemsSource="{Binding ActivePack.Questions}"
-                 DisplayMemberPath="Query"
                  Grid.Row="1"
                  Margin="5"
                  BorderThickness="1"
                  Grid.RowSpan="9"
                  SelectedItem="{Binding ActiveQuestion}">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="Question:" 
+                                   FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Query}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
 
         </ListBox>
 
@@ -90,7 +99,7 @@
                  Grid.Column="1"
               AcceptsReturn="True"
               Margin="20 0 20 20"
-                 Text="{Binding ActiveQuestion.Query}"
+                 Text="{Binding ActiveQuestion.Query,UpdateSourceTrigger=PropertyChanged}"
                  Visibility="{Binding ActiveQuestion, Converter={StaticResource nullToVisibilityConverter}}"/>
 
 
