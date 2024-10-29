@@ -20,8 +20,13 @@
         
         <!--Question-->
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
-        <TextBlock Text="New Question" FontSize="45" />
-        <TextBlock Text="Question x of y" FontSize="20" TextAlignment="Center"/>
+        <TextBlock Text="{Binding PlayerViewModel.Query}" FontSize="45" />
+            <TextBlock FontSize="20" TextAlignment="Center">
+                <Run Text="Question" />
+                <Run Text="0" />
+                <Run Text="of" />
+                <Run Text="{Binding PlayerViewModel.CurrentAmountOfQuestions}" />
+            </TextBlock>
         </StackPanel>
 
 
@@ -29,23 +34,27 @@
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Right">
             <Button Width="220" Height="80"
-                    Margin="10"/>
+                    Margin="10"
+                    Content="{Binding PlayerViewModel.CorrectQuestion}"/>
             <Button Width="220" Height="80"
-                    Margin="10"/>
+                    Margin="10"
+                    Content="{Binding PlayerViewModel.WrongQuestion1}"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" 
                     HorizontalAlignment="Left">
             
                 <Button Width="220" Height="80"
-            Margin="10"/>
+                        Margin="10"
+                        Content="{Binding PlayerViewModel.WrongQuestion2}"/>
             <Button Width="220" Height="80"
-            Margin="10"/>
+                    Margin="10"
+                    Content="{Binding PlayerViewModel.WrongQuestion3}"/>
 
         </StackPanel>
 
         <!--Timer-->
-        <Label Content="{Binding PlayerViewModel.TimerValue}" FontWeight="Bold" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="{Binding PlayerViewModel.Seconds, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1"/>
 
     </Grid>
 </UserControl>

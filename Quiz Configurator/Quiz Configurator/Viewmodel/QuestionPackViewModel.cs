@@ -41,7 +41,11 @@ namespace Quiz_Configurator.Viewmodel
         public ObservableCollection<Question> Questions { get; }
 
 
-
+        public QuestionPackViewModel()
+        {
+            this._model = new QuestionPack(string.Empty);
+            this.Questions = new ObservableCollection<Question>();
+        }
 
         public QuestionPackViewModel(QuestionPack model)
         {

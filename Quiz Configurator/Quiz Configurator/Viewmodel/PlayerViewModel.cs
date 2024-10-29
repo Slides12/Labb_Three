@@ -8,51 +8,72 @@ namespace Quiz_Configurator.Viewmodel
         private readonly MainWindowViewModel mainWindowViewModel;
 
         public DelegateCommand UpdateButtonCommand { get; }
-        public int TimerValue { get; private set; }
 
-        public string TestData
+
+        public string Seconds
         {
-            get => _testData;
+            get => _seconds;
             private set
             {
-                _testData = value;
+                _seconds = value;
                 RaiseProperyChanged();
             }
         }
+
+        public string Query { get; set; } = "New Question";
+        public string CorrectQuestion { get; set; } = "Correct Question";
+        public string WrongQuestion1 { get; set; } = "Wrong Question";
+        public string WrongQuestion2 { get; set; } = "Wrong Question";
+        public string WrongQuestion3 { get; set; } = "Wrong Question";
+        public int CurrentAmountOfQuestions { get; set; }
+
+
+
+
+
+
         private DispatcherTimer timer;
-        private string _testData;
+        private string _seconds;
+        TimeSpan time;
 
         public PlayerViewModel(MainWindowViewModel? mainWindowViewModel)
         {
             this.mainWindowViewModel = mainWindowViewModel;
+            SetTimerValue();
+        }
 
-            TimerValue = ActivePack.TimeLimitInSeconds;
 
-            TestData = "Star value:";
+
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            time = time.Add(TimeSpan.FromSeconds(-1));
+            int secondsOnly = (int)time.TotalSeconds;
+            Seconds = secondsOnly.ToString();
+            RaiseProperyChanged();
+        }
+
+        public void StartTimer()
+        {
+            time = TimeSpan.FromSeconds(ActivePack.TimeLimitInSeconds);
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
-
-            UpdateButtonCommand = new DelegateCommand(UpdateButton, CanUpdateButton);
         }
 
-        private bool CanUpdateButton(object? arg)
+        public void StopTimer()
         {
-            return TestData.Length < 20;
+            timer.Stop();
+            SetTimerValue();
         }
 
-        private void UpdateButton(object obj)
+        public void SetTimerValue()
         {
-            TestData += "x";
-            UpdateButtonCommand.RaiseCanExecuteChanged();
-        }
-
-        private void Timer_Tick(object? sender, EventArgs e)
-        {
-            TimerValue--;
-            RaiseProperyChanged();
+            time = TimeSpan.FromSeconds(ActivePack.TimeLimitInSeconds);
+            int secondsOnly = (int)time.TotalSeconds;
+            Seconds = secondsOnly.ToString();
         }
 
         public QuestionPackViewModel? ActivePack { get => mainWindowViewModel.ActivePack; }

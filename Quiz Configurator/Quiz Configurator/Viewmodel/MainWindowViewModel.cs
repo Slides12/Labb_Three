@@ -14,10 +14,14 @@ namespace Quiz_Configurator.Viewmodel
         public PlayerViewModel PlayerViewModel { get; }
         public ConfigurationViewModel ConfigurationViewModel { get; }
 
+        public Save save;
+        public Load load;
 
 
         public DelegateCommand NewPackCommand { get; }
         public DelegateCommand SetActivePackCommand { get; }
+        public DelegateCommand DeletePackCommand { get; }
+
 
 
         public DelegateCommand SetPlayerViewCommand { get; }
@@ -71,29 +75,57 @@ namespace Quiz_Configurator.Viewmodel
 
         public MainWindowViewModel()
         {
+            load = new Load();
+            save = new Save();
+
+
+            if (load.LoadData().Count > 0)
+            {
+                Packs = load.LoadData();
+                ActivePack = Packs[0];
+
+            }
+            else
+            {
             Packs = new ObservableCollection<QuestionPackViewModel>();
+            QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
+            Packs.Add(qp);
+            ActivePack = qp;
+            }
+
+
+
             NewPackCommand = new DelegateCommand(AddPack);
             SetActivePackCommand = new DelegateCommand(SetActivePack);
+            DeletePackCommand = new DelegateCommand(DeleteActivePack);
             SetPlayerViewCommand = new DelegateCommand(SetPlayerView);
             SetConfigViewCommand = new DelegateCommand(SetConfigView);
+
 
             ConfigVisibility = Visibility.Visible;
             PlayerVisibility = Visibility.Hidden;
 
-            QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
-            Packs.Add(qp);
-            ActivePack = qp;
 
+            
 
             PlayerViewModel = new PlayerViewModel(this);
 
             ConfigurationViewModel = new ConfigurationViewModel(this);
         }
 
+        private void DeleteActivePack(object obj)
+        {
+            Packs?.Remove(ActivePack);
+            ActivePack = null;
+            save.SaveData(Packs);
+        }
+
         private void SetConfigView(object obj)
         {
             ConfigVisibility = Visibility.Visible;
             PlayerVisibility = Visibility.Hidden;
+            PlayerViewModel.StopTimer();
+
             RaiseProperyChanged(nameof(ConfigVisibility));
             RaiseProperyChanged(nameof(PlayerVisibility));
         }
@@ -102,6 +134,9 @@ namespace Quiz_Configurator.Viewmodel
         {
             ConfigVisibility = Visibility.Hidden;
             PlayerVisibility = Visibility.Visible;
+            PlayerViewModel.StartTimer();
+            PlayerViewModel.CurrentAmountOfQuestions = ActivePack.Questions.Count();
+
             RaiseProperyChanged(nameof(ConfigVisibility));
             RaiseProperyChanged(nameof(PlayerVisibility));
         }
@@ -111,6 +146,8 @@ namespace Quiz_Configurator.Viewmodel
             if (obj is QuestionPackViewModel selectedPack)
             {
                 ActivePack = selectedPack;
+                PlayerViewModel.SetTimerValue();
+
                 RaiseProperyChanged(nameof(ActivePack));  
             }
         }
@@ -127,6 +164,8 @@ namespace Quiz_Configurator.Viewmodel
                 QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack(createNewPackDialog.textBox.Text, (Difficulty)createNewPackDialog.comboBox.SelectedValue, (int)createNewPackDialog.slider.Value));
                 ActivePack = qp;
                 Packs.Add(qp);
+                save.SaveData(Packs);
+
             }
         }
 

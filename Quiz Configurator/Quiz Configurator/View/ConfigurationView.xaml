@@ -68,7 +68,8 @@
                  Margin="5"
                  BorderThickness="1"
                  Grid.RowSpan="9"
-                 SelectedItem="{Binding ActiveQuestion}">
+                 SelectedItem="{Binding ActiveQuestion}"
+                 SelectionMode="Extended">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>

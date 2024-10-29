@@ -55,7 +55,7 @@
                 <MenuItem x:Name="deleteQPMenu" 
                         Header="_Delete Question Pack" 
                               Icon="{fa:Icon Folderminus}"
-                              />
+                              Command="{Binding DeletePackCommand}"/>
 
                     <Separator/>
 

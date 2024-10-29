@@ -2,6 +2,7 @@
 using Quiz_Configurator.Model;
 using Quiz_Configurator.Windows;
 using System.Windows.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Quiz_Configurator.Viewmodel
 {
@@ -70,6 +71,10 @@ namespace Quiz_Configurator.Viewmodel
             Question q = new Question("New Question", "", "", "", "");
             ActivePack?.Questions.Add(q);
             ActiveQuestion = q;
+
+            mainWindowViewModel.save.SaveData(mainWindowViewModel.Packs);
+
+
         }
 
         public QuestionPackViewModel? ActivePack { get => mainWindowViewModel.ActivePack; }

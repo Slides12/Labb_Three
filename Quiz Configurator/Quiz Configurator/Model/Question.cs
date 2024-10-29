@@ -7,7 +7,10 @@
         public string IncorrectAnswer1 { get; }
         public string[] IncorrectAnswers { get; set; }
 
-
+        public Question()
+        {
+            IncorrectAnswers = new string[3];
+        }
 
         public Question(string query, string correctAnswer, string incorrectAnswer1, string incorrectAnswer2, string incorrectAnswer3)
         {
