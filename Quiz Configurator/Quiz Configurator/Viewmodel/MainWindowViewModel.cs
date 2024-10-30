@@ -16,12 +16,15 @@ namespace Quiz_Configurator.Viewmodel
 
         public Save save;
         public Load load;
+        public Import import;
 
 
         public DelegateCommand NewPackCommand { get; }
         public DelegateCommand SetActivePackCommand { get; }
         public DelegateCommand DeletePackCommand { get; }
 
+        public DelegateCommand SaveOnCloseCommand { get; }
+        public DelegateCommand ExitCommand { get; }
 
 
         public DelegateCommand SetPlayerViewCommand { get; }
@@ -77,30 +80,22 @@ namespace Quiz_Configurator.Viewmodel
         {
             load = new Load();
             save = new Save();
-
-
-            if (load.LoadData().Count > 0)
-            {
-                Packs = load.LoadData();
-                ActivePack = Packs[0];
-
-            }
-            else
-            {
-            Packs = new ObservableCollection<QuestionPackViewModel>();
-            QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
-            Packs.Add(qp);
-            ActivePack = qp;
-            }
+            import = new Import();
 
 
 
-            NewPackCommand = new DelegateCommand(AddPack);
+            LoadAsync();
+
+
+
+             NewPackCommand = new DelegateCommand(AddPack);
             SetActivePackCommand = new DelegateCommand(SetActivePack);
             DeletePackCommand = new DelegateCommand(DeleteActivePack);
             SetPlayerViewCommand = new DelegateCommand(SetPlayerView);
             SetConfigViewCommand = new DelegateCommand(SetConfigView);
 
+            SaveOnCloseCommand = new DelegateCommand(SaveOnClose);
+            ExitCommand = new DelegateCommand(Exit);
 
             ConfigVisibility = Visibility.Visible;
             PlayerVisibility = Visibility.Hidden;
@@ -109,8 +104,17 @@ namespace Quiz_Configurator.Viewmodel
             
 
             PlayerViewModel = new PlayerViewModel(this);
-
             ConfigurationViewModel = new ConfigurationViewModel(this);
+        }
+
+        private void Exit(object obj)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void SaveOnClose(object obj)
+        {
+            save.SaveData(Packs);
         }
 
         private void DeleteActivePack(object obj)
@@ -134,8 +138,8 @@ namespace Quiz_Configurator.Viewmodel
         {
             ConfigVisibility = Visibility.Hidden;
             PlayerVisibility = Visibility.Visible;
-            PlayerViewModel.StartTimer();
             PlayerViewModel.CurrentAmountOfQuestions = ActivePack.Questions.Count();
+            PlayerViewModel.StartGame();
 
             RaiseProperyChanged(nameof(ConfigVisibility));
             RaiseProperyChanged(nameof(PlayerVisibility));
@@ -165,9 +169,31 @@ namespace Quiz_Configurator.Viewmodel
                 ActivePack = qp;
                 Packs.Add(qp);
                 save.SaveData(Packs);
-
             }
         }
 
+       
+
+
+        public async Task LoadAsync()
+        {
+            var loadedPacks = await load.LoadData();
+
+            if (loadedPacks.Count > 0)
+            {
+                Packs = loadedPacks;
+                ActivePack = Packs[0];
+            }
+            else
+            {
+                Packs = new ObservableCollection<QuestionPackViewModel>();
+                QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack("My Question pack"));
+                Packs.Add(qp);
+                ActivePack = qp;
+            }
+        }
+
+
+        
     }
 }

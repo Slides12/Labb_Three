@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quiz_Configurator" xmlns:view="clr-namespace:Quiz_Configurator.View"
         mc:Ignorable="d"
-        Title="Quiz Configurator" Height="500" Width="800" MinHeight="450" MinWidth="700">
+        Title="Quiz Configurator" Height="500" Width="800" MinHeight="450" MinWidth="700" Closing="Window_Closing">
     <Window.InputBindings>
         <KeyBinding Key="P" Modifiers="Ctrl" Command="{Binding SetPlayerViewCommand}"/>
         <KeyBinding Key="E" Modifiers="Ctrl" Command="{Binding SetConfigViewCommand}"/>
         <KeyBinding Key="Insert"  Command="{Binding ConfigurationViewModel.NewQuestionCommand}"/>
         <KeyBinding Key="Delete"  Command="{Binding ConfigurationViewModel.DeleteQuestionCommand}"/>
+        <KeyBinding Key="O" Modifiers="Ctrl" Command="{Binding ConfigurationViewModel.PackOptionsCommand}"/>
+        <KeyBinding Key="F4" Modifiers="Alt" Command="{Binding ExitCommand}"/>
+
+
 
     </Window.InputBindings>
     <Grid>

@@ -27,6 +27,7 @@ namespace Quiz_Configurator.Viewmodel
             set
             {
                 _activeQuestion = value;
+                mainWindowViewModel.save.SaveData(mainWindowViewModel.Packs);
                 RaiseProperyChanged();
             }
         }
@@ -58,12 +59,16 @@ namespace Quiz_Configurator.Viewmodel
             {
                 ActiveQuestion = selectedQuestion;
                 RaiseProperyChanged(nameof(ActiveQuestion));
+                mainWindowViewModel.save.SaveData(mainWindowViewModel.Packs);
+
             }
         }
 
         private void DeleteQuestionButton(object obj)
         {
             ActivePack?.Questions.Remove(ActiveQuestion);
+            mainWindowViewModel.save.SaveData(mainWindowViewModel.Packs);
+
         }
 
         private void NewQuestionButton(object obj)

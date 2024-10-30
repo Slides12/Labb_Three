@@ -17,9 +17,6 @@
             </ComboBox>
             <DockPanel >
                 <Label Content="Time Limit:" FontWeight="Bold"/>
-                <Label Content="" 
-                ContentStringFormat="#{0} seconds}"
-                />
                 <Label Content="{Binding ElementName=slider, Path=Value}" 
                 ContentStringFormat=" {0} seconds" 
                 HorizontalAlignment="Right"/>

@@ -15,7 +15,7 @@ namespace Quiz_Configurator.Model
 
         string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-        public ObservableCollection<QuestionPackViewModel> LoadData()
+        public async Task<ObservableCollection<QuestionPackViewModel>> LoadData()
         {
             string directoryPath = Path.Combine(path, "QuizConfigurator");
             string filePath = Path.Combine(directoryPath, "QuizConfig.json");
@@ -27,7 +27,7 @@ namespace Quiz_Configurator.Model
             {
                 using (StreamReader sr = new StreamReader(filePath))
                 {
-                    string jsonContent = sr.ReadToEnd();
+                    string jsonContent = await sr.ReadToEndAsync();
                     var questionPacks = JsonSerializer.Deserialize<List<QuestionPack>>(jsonContent);
 
                     if (questionPacks != null)

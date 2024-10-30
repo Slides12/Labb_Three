@@ -15,7 +15,7 @@ namespace Quiz_Configurator.Model
     {
         string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-        public void SaveData(ObservableCollection<QuestionPackViewModel> Packs)
+        public async Task SaveData(ObservableCollection<QuestionPackViewModel> Packs)
         {
             string directoryPath = Path.Combine(path, "QuizConfigurator");
             string filePath = Path.Combine(directoryPath, "QuizConfig.json");
@@ -28,7 +28,7 @@ namespace Quiz_Configurator.Model
             using (StreamWriter sw = new StreamWriter(filePath))
             {
                 string json = JsonSerializer.Serialize(Packs);
-                sw.Write(json);
+                await sw.WriteAsync(json);
             }
         }
     }

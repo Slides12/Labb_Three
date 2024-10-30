@@ -4,7 +4,6 @@
     {
         public string Query { get; set; }
         public string CorrectAnswer { get; set; }
-        public string IncorrectAnswer1 { get; }
         public string[] IncorrectAnswers { get; set; }
 
         public Question()

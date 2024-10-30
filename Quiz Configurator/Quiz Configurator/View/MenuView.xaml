@@ -70,7 +70,8 @@
                     <MenuItem x:Name="exitMenu" 
                         Header="E_xit"
                           InputGestureText="Alt+F4"
-                              Icon="{fa:Icon dooropen}"/>
+                              Icon="{fa:Icon dooropen}"
+                              Command="{Binding ExitCommand}"/>
 
 
                 </MenuItem>
@@ -108,14 +109,15 @@
                     <MenuItem x:Name="playMenu" 
                         Header="_Play" 
                           InputGestureText="Ctrl+P"
-                              Command="{Binding PlayerViewModel.UpdateButtonCommand}"
+                              Command="{Binding SetPlayerViewCommand}"
                               Icon="{fa:Icon play}"/> 
 
 
                     <MenuItem x:Name="editMenu"
                         Header="_Edit"
                           InputGestureText="Ctrl+E"
-                              Icon="{fa:Icon gear}"/>
+                              Icon="{fa:Icon gear}"
+                              Command="{Binding SetConfigViewCommand}"/>
 
 
                     <MenuItem x:Name="fullscreenMenu" 
