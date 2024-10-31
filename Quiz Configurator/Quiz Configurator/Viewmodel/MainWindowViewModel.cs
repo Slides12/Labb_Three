@@ -167,7 +167,7 @@ namespace Quiz_Configurator.Viewmodel
             {
                 _packDifficulty = value;
 
-                RaiseProperyChanged("Difficulty");
+                RaiseProperyChanged("PackDifficulty");
             }
         }
 
@@ -335,30 +335,7 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
-        public static async Task GetRequestCode()
-        {
-            Import import = new Import();
-            string request = await import.GetRequestCode();
 
-            if (request != null)
-            {
-                var quizResponse = JsonSerializer.Deserialize<ResponseCode>(request);
-                if(quizResponse.response_code == 0)
-                {
-                    MessageBox.Show("Returned results successfully.");
-                }
-                else if(quizResponse.response_code == 1)
-                {
-                    MessageBox.Show("Could not return results. The API doesn't have enough questions for your query. (Ex. Asking for 50 Questions in a Category that only has 20.)");
-
-                }
-                else
-                {
-                    MessageBox.Show("Huh?");
-
-                }
-            }
-        }
 
         public static async Task GetQuestions(QuestionPackViewModel? ActivePack, int amount = 10, int category = 9, string difficulty = "medium" )
         {
@@ -368,7 +345,7 @@ namespace Quiz_Configurator.Viewmodel
             if (questions != null)
             {
                 var quizResponse = JsonSerializer.Deserialize<ImportClass>(questions);
-
+                
                 if (quizResponse != null && quizResponse.Results != null && ActivePack?.Questions != null)
                 {
                     foreach (var question in quizResponse.Results)
@@ -382,7 +359,18 @@ namespace Quiz_Configurator.Viewmodel
                         ActivePack.Questions.Add(question);
                     }
                 }
-                await GetRequestCode();
+                if (quizResponse.ResponseCode == 0)
+                {
+                    MessageBox.Show("Returned results successfully.");
+                }
+                else if (quizResponse.ResponseCode == 1)
+                {
+                    MessageBox.Show("The API doesn't have enough questions for your query. (Ex. Asking for 20 Questions in a Category that only has 10.)");
+                }
+                else
+                {
+                    MessageBox.Show($"{quizResponse.ResponseCode} Huh?");
+                }
             }
         }
 
