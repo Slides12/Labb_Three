@@ -62,7 +62,8 @@
                     <MenuItem x:Name="importQuestionsMenu" 
                         Header="_Import Questions"
                           InputGestureText="Ctrl+I"
-                          Icon="{fa:Icon cloudarrowdown}"/>
+                          Icon="{fa:Icon cloudarrowdown}"
+                              Command="{Binding ImportMenuCommand}"/>
 
 
                     <Separator/>
@@ -96,7 +97,8 @@
                     <MenuItem x:Name="packOptionsMenu" 
                         Header="Pack _Options" 
                           InputGestureText="Ctrl+O"
-                      Icon="{fa:Icon toolbox}"/>
+                      Icon="{fa:Icon toolbox}"
+                              Command="{Binding ConfigurationViewModel.PackOptionsCommand}"/>
 
 
                 </MenuItem>

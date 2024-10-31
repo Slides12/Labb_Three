@@ -101,7 +101,7 @@
               AcceptsReturn="True"
               Margin="20 0 20 20"
                  Text="{Binding ActiveQuestion.Query,UpdateSourceTrigger=PropertyChanged}"
-                 Visibility="{Binding ActiveQuestion, Converter={StaticResource nullToVisibilityConverter}}"/>
+                 Visibility="{Binding ActiveQuestion, Converter={StaticResource nullToVisibilityConverter}}" TextWrapping="Wrap"/>
 
 
         <!--Answers-->

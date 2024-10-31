@@ -3,6 +3,9 @@ using Quiz_Configurator.Model;
 using Quiz_Configurator.View;
 using Quiz_Configurator.Windows;
 using System.Collections.ObjectModel;
+using System.Net.Http.Json;
+using System.Text.Json;
+using System.Web;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -24,6 +27,8 @@ namespace Quiz_Configurator.Viewmodel
         public DelegateCommand DeletePackCommand { get; }
 
         public DelegateCommand SaveOnCloseCommand { get; }
+        public DelegateCommand ImportFromDBCommand { get; }
+        public DelegateCommand ImportMenuCommand { get; }
         public DelegateCommand ExitCommand { get; }
 
 
@@ -34,6 +39,8 @@ namespace Quiz_Configurator.Viewmodel
 
 
         private QuestionPackViewModel? _activePack;
+
+        public ObservableCollection<Category> CategoriesList { get; set; }
 
         public QuestionPackViewModel? ActivePack
         {
@@ -81,8 +88,8 @@ namespace Quiz_Configurator.Viewmodel
             load = new Load();
             save = new Save();
             import = new Import();
-
-
+            CategoriesList = new ObservableCollection<Category>();
+            GetCategorys();
 
             LoadAsync();
 
@@ -95,6 +102,8 @@ namespace Quiz_Configurator.Viewmodel
             SetConfigViewCommand = new DelegateCommand(SetConfigView);
 
             SaveOnCloseCommand = new DelegateCommand(SaveOnClose);
+            ImportFromDBCommand = new DelegateCommand(async _ => await GetQuestions(ActivePack), _ => true);
+            ImportMenuCommand = new DelegateCommand(ImportMenu);
             ExitCommand = new DelegateCommand(Exit);
 
             ConfigVisibility = Visibility.Visible;
@@ -172,6 +181,19 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
+
+        private async void ImportMenu(object obj)
+        {
+            ImportQuestions createNewImportDialog = new ImportQuestions() {DataContext = this};
+            var result = createNewImportDialog.ShowDialog();
+
+
+
+            if (result == true)
+            {
+                await GetQuestions(ActivePack);   
+            }
+        }
        
 
 
@@ -193,7 +215,49 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
+        public static async Task GetQuestions(QuestionPackViewModel? ActivePack)
+        {
+            Import import = new Import();
+            string questions = await import.ImportAsync();
 
-        
+            if (questions != null)
+            {
+                var quizResponse = JsonSerializer.Deserialize<ImportClass>(questions);
+
+                if (quizResponse != null && quizResponse.Results != null && ActivePack?.Questions != null)
+                {
+                    foreach (var question in quizResponse.Results)
+                    {
+                        question.Query = HttpUtility.HtmlDecode(question.Query);
+                        question.CorrectAnswer = HttpUtility.HtmlDecode(question.CorrectAnswer);
+                        question.IncorrectAnswers[0] = HttpUtility.HtmlDecode(question.IncorrectAnswers[0]);
+                        question.IncorrectAnswers[1] = HttpUtility.HtmlDecode(question.IncorrectAnswers[1]);
+                        question.IncorrectAnswers[2] = HttpUtility.HtmlDecode(question.IncorrectAnswers[2]);
+
+                        ActivePack.Questions.Add(question);
+                    }
+                }
+            }
+        }
+
+
+        public async Task GetCategorys()
+        {
+            Import import = new Import();
+            string triviaCategories = await import.ImportCategorysAsync();
+
+            if (triviaCategories != null)
+            {
+                var categoryResponse = JsonSerializer.Deserialize<TriviaCategories>(triviaCategories);
+
+                CategoriesList.Clear();
+
+                foreach (var category in categoryResponse.triviaCategories)
+                {
+                    CategoriesList.Add(category);
+                }
+            }
+        }
+
     }
 }

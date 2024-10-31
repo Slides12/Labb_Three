@@ -2,6 +2,7 @@
 using Quiz_Configurator.Model;
 using System;
 using System.Diagnostics;
+using System.Web;
 using System.Windows.Threading;
 
 namespace Quiz_Configurator.Viewmodel
@@ -44,7 +45,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _query = value;
+                _query = HttpUtility.UrlDecode(value);
 
                 RaiseProperyChanged("Query");
             }
@@ -59,7 +60,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _correctQuestion = value;
+                _correctQuestion = HttpUtility.UrlDecode(value);
 
                 RaiseProperyChanged("CorrectQuestion");
             }
@@ -74,7 +75,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _wrongQuestion1 = value;
+                _wrongQuestion1 = HttpUtility.UrlDecode(value);
 
                 RaiseProperyChanged("WrongQuestion1");
             }
@@ -89,7 +90,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _wrongQuestion2 = value;
+                _wrongQuestion2 = HttpUtility.UrlDecode(value);
 
                 RaiseProperyChanged("WrongQuestion2");
             }
@@ -104,7 +105,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _wrongQuestion3 = value;
+                _wrongQuestion3 = HttpUtility.UrlDecode(value);
 
                 RaiseProperyChanged("WrongQuestion3");
             }

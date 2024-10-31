@@ -1,9 +1,14 @@
-﻿namespace Quiz_Configurator.Model
+﻿using System.Text.Json.Serialization;
+
+namespace Quiz_Configurator.Model
 {
     class Question
     {
+        [JsonPropertyName("question")]
         public string Query { get; set; }
+        [JsonPropertyName("correct_answer")]
         public string CorrectAnswer { get; set; }
+        [JsonPropertyName("incorrect_answers")]
         public string[] IncorrectAnswers { get; set; }
 
         public Question()
