@@ -1,9 +1,3 @@
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.exe
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.deps.json
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.runtimeconfig.json
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.dll
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.pdb
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.csproj.AssemblyReference.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\ConfigurationView.g.cs
@@ -16,6 +10,13 @@ C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\D
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator_MarkupCompile.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator_MarkupCompile.lref
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.exe
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.deps.json
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.runtimeconfig.json
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.dll
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\Quiz Configurator.pdb
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\App.baml
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\ConfigurationView.baml
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\MenuView.baml
@@ -35,4 +36,3 @@ C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\D
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.pdb
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.genruntimeconfig.cache
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\ref\Quiz Configurator.dll
-C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\App.baml

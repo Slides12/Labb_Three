@@ -13,6 +13,8 @@
         <KeyBinding Key="Delete"  Command="{Binding ConfigurationViewModel.DeleteQuestionCommand}"/>
         <KeyBinding Key="O" Modifiers="Ctrl" Command="{Binding ConfigurationViewModel.PackOptionsCommand}"/>
         <KeyBinding Key="F4" Modifiers="Alt" Command="{Binding ExitCommand}"/>
+        <KeyBinding Key="I" Modifiers="Ctrl" Command="{Binding ImportMenuCommand}"/>
+
 
 
 

@@ -20,7 +20,7 @@
         
         <!--Question-->
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2">
-        <TextBlock Text="{Binding PlayerViewModel.Query}" FontSize="40" TextWrapping="Wrap" Padding="20" TextAlignment="Center"/>
+        <TextBlock Text="{Binding PlayerViewModel.Query}" FontSize="35" TextWrapping="Wrap" Padding="30 0 30 10" TextAlignment="Center"/>
             <TextBlock FontSize="20" TextAlignment="Center">
                 <Run Text="Question" />
                 <Run Text="{Binding PlayerViewModel.Index}" />

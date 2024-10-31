@@ -9,11 +9,12 @@
     <Grid>
         <StackPanel Margin="10 0 10 10" Grid.ColumnSpan="3">
             <Label Content="Category:" FontWeight="Bold"/>
-            <ComboBox ItemsSource="{Binding CategoriesList}" DisplayMemberPath="name">
+            <ComboBox x:Name="comboBoxCat" ItemsSource="{Binding CategoriesList}" DisplayMemberPath="name" SelectedIndex="0" 
+                      SelectedItem="{Binding SelectedCategory, Mode=TwoWay}">
                 
             </ComboBox>
             <Label Content="Difficulty:" FontWeight="Bold"/>
-            <ComboBox>
+            <ComboBox SelectedItem="{Binding DownloadDifficulty, Mode=TwoWay}" SelectedIndex="1" >
                 <ComboBoxItem Content="Easy"/>
                 <ComboBoxItem Content="Medium" IsSelected="True"/>
                 <ComboBoxItem Content="Hard"/>
@@ -29,7 +30,7 @@
               TickFrequency="1" 
               TickPlacement="BottomRight" 
               IsSnapToTickEnabled="True"
-              Value="1"/>
+              Value="{Binding NumberOfQuestions, Mode=TwoWay}" />
 
             <DockPanel VerticalAlignment="Bottom">
                 <Button Content="Cancel" Height="20" Width="50" Margin="50 20 0 20" Click="cancelButton_Click"/>

@@ -53,6 +53,75 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
+
+
+
+        //Import
+
+        private string _downloadDifficulty = "medium";
+        public string DownloadDifficulty
+        {
+            get
+            {
+                return _downloadDifficulty;
+            }
+            set
+            {
+                _downloadDifficulty = value.ToLower();
+
+                RaiseProperyChanged("Difficulty");
+            }
+        }
+
+        private Category _selectedCategory;
+        public Category SelectedCategory
+        {
+            get
+            {
+                return _selectedCategory;
+            }
+            set
+            {
+
+                _selectedCategory = value;
+
+                Category = _selectedCategory?.id ?? 9;
+
+                RaiseProperyChanged("SelectedCategory");
+            }
+        }
+
+        private int _category = 9;
+        public int Category
+        {
+            get
+            {
+                return _category;
+            }
+            set
+            {
+                _category = value;
+                RaiseProperyChanged("Category");
+            }
+        }
+
+        private int _numberOfQuestions = 10;
+        public int NumberOfQuestions
+        {
+            get
+            {
+                return _numberOfQuestions;
+            }
+            set
+            {
+                _numberOfQuestions = value;
+
+                RaiseProperyChanged("NumberOfQuestions");
+            }
+        }
+
+        // Visibility
+
         private Visibility _playerVisibility;
         public Visibility PlayerVisibility
         {
@@ -83,6 +152,55 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
+
+        // Add Pack
+
+
+        private Difficulty _packDifficulty;
+        public Difficulty PackDifficulty
+        {
+            get
+            {
+                return _packDifficulty;
+            }
+            set
+            {
+                _packDifficulty = value;
+
+                RaiseProperyChanged("Difficulty");
+            }
+        }
+
+        private string _packName = "<PackName>";
+        public string PackName
+        {
+            get
+            {
+                return _packName;
+            }
+            set
+            {
+                _packName = value;
+
+                RaiseProperyChanged("PackName");
+            }
+        }
+
+        private int _packTimeLimit = 30;
+        public int PackTimeLimit
+        {
+            get
+            {
+                return _packTimeLimit;
+            }
+            set
+            {
+                _packTimeLimit = value;
+
+                RaiseProperyChanged("PackTimeLimit");
+            }
+        }
+
         public MainWindowViewModel()
         {
             load = new Load();
@@ -90,12 +208,11 @@ namespace Quiz_Configurator.Viewmodel
             import = new Import();
             CategoriesList = new ObservableCollection<Category>();
             GetCategorys();
-
             LoadAsync();
 
 
 
-             NewPackCommand = new DelegateCommand(AddPack);
+            NewPackCommand = new DelegateCommand(AddPack);
             SetActivePackCommand = new DelegateCommand(SetActivePack);
             DeletePackCommand = new DelegateCommand(DeleteActivePack);
             SetPlayerViewCommand = new DelegateCommand(SetPlayerView);
@@ -167,23 +284,26 @@ namespace Quiz_Configurator.Viewmodel
 
         private void AddPack(object obj)
         {
-            CreateNewPackDialog createNewPackDialog = new CreateNewPackDialog();
+            CreateNewPackDialog createNewPackDialog = new CreateNewPackDialog() { DataContext = this };
             var result = createNewPackDialog.ShowDialog();
 
 
 
             if (result == true)
             {
-                QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack(createNewPackDialog.textBox.Text, (Difficulty)createNewPackDialog.comboBox.SelectedValue, (int)createNewPackDialog.slider.Value));
+                QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack(PackName, PackDifficulty, PackTimeLimit));
                 ActivePack = qp;
                 Packs.Add(qp);
                 save.SaveData(Packs);
             }
+
         }
 
 
         private async void ImportMenu(object obj)
         {
+            _selectedCategory = CategoriesList[0];
+
             ImportQuestions createNewImportDialog = new ImportQuestions() {DataContext = this};
             var result = createNewImportDialog.ShowDialog();
 
@@ -191,7 +311,7 @@ namespace Quiz_Configurator.Viewmodel
 
             if (result == true)
             {
-                await GetQuestions(ActivePack);   
+                await GetQuestions(ActivePack, NumberOfQuestions, Category, DownloadDifficulty);   
             }
         }
        
@@ -215,10 +335,35 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
-        public static async Task GetQuestions(QuestionPackViewModel? ActivePack)
+        public static async Task GetRequestCode()
         {
             Import import = new Import();
-            string questions = await import.ImportAsync();
+            string request = await import.GetRequestCode();
+
+            if (request != null)
+            {
+                var quizResponse = JsonSerializer.Deserialize<ResponseCode>(request);
+                if(quizResponse.response_code == 0)
+                {
+                    MessageBox.Show("Returned results successfully.");
+                }
+                else if(quizResponse.response_code == 1)
+                {
+                    MessageBox.Show("Could not return results. The API doesn't have enough questions for your query. (Ex. Asking for 50 Questions in a Category that only has 20.)");
+
+                }
+                else
+                {
+                    MessageBox.Show("Huh?");
+
+                }
+            }
+        }
+
+        public static async Task GetQuestions(QuestionPackViewModel? ActivePack, int amount = 10, int category = 9, string difficulty = "medium" )
+        {
+            Import import = new Import();
+            string questions = await import.ImportAsync(amount,category,difficulty);
 
             if (questions != null)
             {
@@ -237,6 +382,7 @@ namespace Quiz_Configurator.Viewmodel
                         ActivePack.Questions.Add(question);
                     }
                 }
+                await GetRequestCode();
             }
         }
 
@@ -256,6 +402,7 @@ namespace Quiz_Configurator.Viewmodel
                 {
                     CategoriesList.Add(category);
                 }
+
             }
         }
 

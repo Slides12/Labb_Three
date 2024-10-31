@@ -204,13 +204,15 @@ namespace Quiz_Configurator.Viewmodel
 
         private void UpdateQuestions()
         {
+            if(ActivePack != null && ActivePack.Questions.Count > 0) 
+            { 
             Query = ActivePack.Questions[Index - 1].Query;
             CorrectQuestion = ActivePack.Questions[Index - 1].CorrectAnswer;
             WrongQuestion1 = ActivePack.Questions[Index - 1].IncorrectAnswers[0];
             WrongQuestion2 = ActivePack.Questions[Index - 1].IncorrectAnswers[1];
             WrongQuestion3 = ActivePack.Questions[Index - 1].IncorrectAnswers[2];
+            }
         }
-
         public QuestionPackViewModel? ActivePack { get => mainWindowViewModel.ActivePack; }
     }
 }

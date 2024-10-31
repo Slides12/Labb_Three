@@ -16,6 +16,23 @@ namespace Quiz_Configurator.Model
 
         private static readonly HttpClient client = new HttpClient();
 
+        public async Task<string> GetRequestCode()
+        {
+            string url = $"https://opentdb.com/api_token.php?command=request";
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    return await client.GetStringAsync(url);
+                }
+                catch (HttpRequestException e)
+                {
+                    MessageBox.Show($"Request error: {e.Message}");
+                    return null;
+                }
+            }
+        }
 
         public async Task<string> ImportAsync(int amount = 10, int category = 9, string difficulty = "medium")
         {
