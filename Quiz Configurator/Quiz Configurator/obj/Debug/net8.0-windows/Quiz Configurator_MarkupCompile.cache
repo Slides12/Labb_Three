@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\App.xaml
-71150306583
+8-119970416
 
-25-836693390
+261705673051
 208204164832
-MainWindow.xaml;View\ConfigurationView.xaml;View\MenuView.xaml;View\PlayerView.xaml;Windows\CreateNewPackDialog.xaml;Windows\ImportQuestions.xaml;Windows\PackOptionsDialog.xaml;
+MainWindow.xaml;View\ConfigurationView.xaml;View\EndScreen.xaml;View\MenuView.xaml;View\PlayerView.xaml;Windows\CreateNewPackDialog.xaml;Windows\ImportQuestions.xaml;Windows\PackOptionsDialog.xaml;
 
 False
 

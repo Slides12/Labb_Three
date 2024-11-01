@@ -33,12 +33,22 @@
         <!--Answers-->
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Right">
+                <Button Width="220" Height="80"
+                        Margin="10"
+                        Command="{Binding PlayerViewModel.CheckButtonCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                <TextBlock Text="{Binding PlayerViewModel.CorrectQuestion}"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Button>
             <Button Width="220" Height="80"
-                    Margin="10"
-                    Content="{Binding PlayerViewModel.CorrectQuestion}"/>
-            <Button Width="220" Height="80"
-                    Margin="10"
-                    Content="{Binding PlayerViewModel.WrongQuestion1}"/>
+                        Margin="10"
+                        Command="{Binding PlayerViewModel.CheckButtonCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                <TextBlock Text="{Binding PlayerViewModel.WrongQuestion1}"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Button>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" 
@@ -46,11 +56,21 @@
             
                 <Button Width="220" Height="80"
                         Margin="10"
-                        Content="{Binding PlayerViewModel.WrongQuestion2}"/>
-            <Button Width="220" Height="80"
-                    Margin="10"
-                    Content="{Binding PlayerViewModel.WrongQuestion3}"/>
-
+                        Command="{Binding PlayerViewModel.CheckButtonCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                <TextBlock Text="{Binding PlayerViewModel.WrongQuestion2}"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Button>
+            
+                <Button Width="220" Height="80"
+                        Margin="10"
+                        Command="{Binding PlayerViewModel.CheckButtonCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
+                <TextBlock Text="{Binding PlayerViewModel.WrongQuestion3}"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Button>
         </StackPanel>
 
         <!--Timer-->

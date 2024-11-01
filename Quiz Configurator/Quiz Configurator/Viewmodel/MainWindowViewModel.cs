@@ -137,18 +137,34 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
-        private Visibility configVisibility;
+        private Visibility _configVisibility;
         public Visibility ConfigVisibility
         {
             get
             {
-                return configVisibility;
+                return _configVisibility;
             }
             set
             {
-                configVisibility = value;
+                _configVisibility = value;
 
                 RaiseProperyChanged("ConfigVisibility");
+            }
+        }
+
+
+        private Visibility _endScreenVisibility;
+        public Visibility EndScreenVisibility
+        {
+            get
+            {
+                return _endScreenVisibility;
+            }
+            set
+            {
+                _endScreenVisibility = value;
+
+                RaiseProperyChanged("EndScreenVisibility");
             }
         }
 
@@ -225,9 +241,11 @@ namespace Quiz_Configurator.Viewmodel
 
             ConfigVisibility = Visibility.Visible;
             PlayerVisibility = Visibility.Hidden;
+            EndScreenVisibility = Visibility.Hidden;
 
 
-            
+
+
 
             PlayerViewModel = new PlayerViewModel(this);
             ConfigurationViewModel = new ConfigurationViewModel(this);
@@ -245,8 +263,20 @@ namespace Quiz_Configurator.Viewmodel
 
         private void DeleteActivePack(object obj)
         {
-            Packs?.Remove(ActivePack);
-            ActivePack = null;
+            var Result = MessageBox.Show($"Are you sure you want to delete {ActivePack.Name}?","Delete question pack.",MessageBoxButton.YesNo);
+            if(Result == MessageBoxResult.Yes) 
+            { 
+                Packs?.Remove(ActivePack);
+
+                if(Packs.Count > 0) { 
+                    ActivePack = Packs[0];
+                }
+                else
+                {
+                    ActivePack = null;
+                }
+            }
+            
             save.SaveData(Packs);
         }
 
@@ -254,21 +284,44 @@ namespace Quiz_Configurator.Viewmodel
         {
             ConfigVisibility = Visibility.Visible;
             PlayerVisibility = Visibility.Hidden;
+            EndScreenVisibility = Visibility.Hidden;
             PlayerViewModel.StopTimer();
 
             RaiseProperyChanged(nameof(ConfigVisibility));
             RaiseProperyChanged(nameof(PlayerVisibility));
+            RaiseProperyChanged(nameof(EndScreenVisibility));
         }
 
         private void SetPlayerView(object obj)
         {
+            if(ActivePack.Questions.Count > 0) { 
             ConfigVisibility = Visibility.Hidden;
             PlayerVisibility = Visibility.Visible;
+            EndScreenVisibility = Visibility.Hidden;
             PlayerViewModel.CurrentAmountOfQuestions = ActivePack.Questions.Count();
             PlayerViewModel.StartGame();
+            
+            RaiseProperyChanged(nameof(ConfigVisibility));
+            RaiseProperyChanged(nameof(PlayerVisibility));
+            RaiseProperyChanged(nameof(EndScreenVisibility));
+            }
+            else
+            {
+                MessageBox.Show("You currently have no questions in this packs. Add questions or choose another pack.");
+            }
+        }
+
+        public void SetEndScreen()
+        {
+            ConfigVisibility = Visibility.Hidden;
+            PlayerVisibility = Visibility.Hidden;
+            EndScreenVisibility = Visibility.Visible;
+            PlayerViewModel.CurrentAmountOfQuestions = ActivePack.Questions.Count();
+            PlayerViewModel.StopTimer();
 
             RaiseProperyChanged(nameof(ConfigVisibility));
             RaiseProperyChanged(nameof(PlayerVisibility));
+            RaiseProperyChanged(nameof(EndScreenVisibility));
         }
 
         private void SetActivePack(object obj)
@@ -359,15 +412,11 @@ namespace Quiz_Configurator.Viewmodel
                         ActivePack.Questions.Add(question);
                     }
                 }
-                if (quizResponse.ResponseCode == 0)
-                {
-                    MessageBox.Show("Returned results successfully.");
-                }
-                else if (quizResponse.ResponseCode == 1)
+                if (quizResponse.ResponseCode == 1)
                 {
                     MessageBox.Show("The API doesn't have enough questions for your query. (Ex. Asking for 20 Questions in a Category that only has 10.)");
                 }
-                else
+                else if (quizResponse.ResponseCode > 1)
                 {
                     MessageBox.Show($"{quizResponse.ResponseCode} Huh?");
                 }

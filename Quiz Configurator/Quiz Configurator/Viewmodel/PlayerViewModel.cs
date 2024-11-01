@@ -5,8 +5,13 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Web;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Windows.Controls;
+using System.Drawing;
+using System.Windows.Media;
+
 
 namespace Quiz_Configurator.Viewmodel
 {
@@ -14,8 +19,27 @@ namespace Quiz_Configurator.Viewmodel
     {
         private readonly MainWindowViewModel mainWindowViewModel;
 
-        public DelegateCommand UpdateButtonCommand { get; }
+        public DelegateCommand CheckButtonCommand { get; }
         private int secondsOnly;
+        private bool canPress = true;
+
+
+        private int _points;
+        public int Points
+        {
+            get
+            {
+                return _points;
+            }
+            set
+            {
+                _points = value;
+
+                RaiseProperyChanged("Points");
+            }
+        }
+
+
         private int _index;
         public int Index
         {
@@ -30,6 +54,7 @@ namespace Quiz_Configurator.Viewmodel
                 RaiseProperyChanged("Index");
             }
         }
+        private string _seconds;
         public string Seconds
         {
             get => _seconds;
@@ -135,17 +160,57 @@ namespace Quiz_Configurator.Viewmodel
 
 
         private DispatcherTimer timer;
-        private string _seconds;
         TimeSpan time;
 
         public PlayerViewModel(MainWindowViewModel? mainWindowViewModel)
         {
             this.mainWindowViewModel = mainWindowViewModel;
+            CheckButtonCommand = new DelegateCommand(CheckButton);
             SetTimerValue();
         }
 
+        private async void CheckButton(object obj)
+        {
+            if (obj is System.Windows.Controls.Button button)
+            {
+                if (canPress) 
+                { 
+                    if((button.Content as TextBlock).Text.Equals(ActivePack.Questions[Index - 1].CorrectAnswer))
+                    {
+                        button.Background = new SolidColorBrush(Colors.LightGreen);
+                        canPress = false;
+                        Points++;
+                        await Task.Delay(1500);
+                        button.Background = new SolidColorBrush(Colors.White);
+                        NextQuestion();
+                        canPress = true;
+                    }
+                    else
+                    {
+                        button.Background = new SolidColorBrush(Colors.IndianRed);
+                        canPress = false;
+                        await Task.Delay(1500);
+                        button.Background = new SolidColorBrush(Colors.White);
+                        NextQuestion();
+                        canPress = true;
+                    }
+                }
+            }
+        }
 
-
+        private void NextQuestion()
+        {
+            if (Index < CurrentAmountOfQuestions)
+            {
+                Index++;
+                UpdateQuestions();
+                SetTimerValue();
+            }
+            else
+            {
+                mainWindowViewModel.SetEndScreen();
+            }
+        }
 
         private void Timer_Tick(object? sender, EventArgs e)
         {
@@ -164,7 +229,7 @@ namespace Quiz_Configurator.Viewmodel
                     }
                     else
                     {
-                        StopTimer();
+                        mainWindowViewModel.SetEndScreen();
                     }
                 }
             }
@@ -199,6 +264,7 @@ namespace Quiz_Configurator.Viewmodel
         public void StartGame()
         {
             Index = 1;
+            Points = 0;
             UpdateQuestions();
             SetTimerValue();
             StartTimer();

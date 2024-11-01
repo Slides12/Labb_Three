@@ -10,6 +10,9 @@
     <Compile Update="View\ConfigurationView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\EndScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\MenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ConfigurationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EndScreen.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MenuView.xaml">

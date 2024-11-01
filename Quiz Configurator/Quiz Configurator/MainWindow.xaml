@@ -37,6 +37,9 @@
                                                      RelativeSource={RelativeSource AncestorType=Window}}"/>
 
         <view:PlayerView Grid.Row="1" Visibility="{Binding PlayerVisibility}"/>
+        
+        <view:EndScreenView Grid.Row="1" Visibility="{Binding EndScreenVisibility}"/>
+
 
 
 
