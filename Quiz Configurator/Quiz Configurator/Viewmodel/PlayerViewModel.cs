@@ -2,8 +2,11 @@
 using Quiz_Configurator.Model;
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Web;
+using System.Windows.Documents;
 using System.Windows.Threading;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Quiz_Configurator.Viewmodel
 {
@@ -45,7 +48,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _query = HttpUtility.UrlDecode(value);
+                _query = value;
 
                 RaiseProperyChanged("Query");
             }
@@ -60,7 +63,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _correctQuestion = HttpUtility.UrlDecode(value);
+                _correctQuestion = value;
 
                 RaiseProperyChanged("CorrectQuestion");
             }
@@ -75,7 +78,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _wrongQuestion1 = HttpUtility.UrlDecode(value);
+                _wrongQuestion1 = value;
 
                 RaiseProperyChanged("WrongQuestion1");
             }
@@ -90,7 +93,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _wrongQuestion2 = HttpUtility.UrlDecode(value);
+                _wrongQuestion2 = value;
 
                 RaiseProperyChanged("WrongQuestion2");
             }
@@ -105,7 +108,7 @@ namespace Quiz_Configurator.Viewmodel
             }
             set
             {
-                _wrongQuestion3 = HttpUtility.UrlDecode(value);
+                _wrongQuestion3 = value;
 
                 RaiseProperyChanged("WrongQuestion3");
             }
@@ -201,16 +204,28 @@ namespace Quiz_Configurator.Viewmodel
             StartTimer();
         }
 
+        public List<string> SetQuestionsRandomly(string correct, string wrong1, string wrong2, string wrong3)
+        {
+            string[] strings = new string[4] {correct,wrong1,wrong2,wrong3};
+
+            Random rng = new Random();
+
+            var randomizeQuestions = strings.OrderBy(_ => rng.Next()).ToList();
+
+            return randomizeQuestions;
+        }
 
         private void UpdateQuestions()
         {
-            if(ActivePack != null && ActivePack.Questions.Count > 0) 
+            List<string> strings = SetQuestionsRandomly(ActivePack.Questions[Index - 1].CorrectAnswer, ActivePack.Questions[Index - 1].IncorrectAnswers[0], ActivePack.Questions[Index - 1].IncorrectAnswers[1], ActivePack.Questions[Index - 1].IncorrectAnswers[2]);
+
+            if (ActivePack != null && ActivePack.Questions.Count > 0) 
             { 
             Query = ActivePack.Questions[Index - 1].Query;
-            CorrectQuestion = ActivePack.Questions[Index - 1].CorrectAnswer;
-            WrongQuestion1 = ActivePack.Questions[Index - 1].IncorrectAnswers[0];
-            WrongQuestion2 = ActivePack.Questions[Index - 1].IncorrectAnswers[1];
-            WrongQuestion3 = ActivePack.Questions[Index - 1].IncorrectAnswers[2];
+            CorrectQuestion = strings[0];
+            WrongQuestion1 = strings[1];
+            WrongQuestion2 = strings[2];
+            WrongQuestion3 = strings[3];
             }
         }
         public QuestionPackViewModel? ActivePack { get => mainWindowViewModel.ActivePack; }
