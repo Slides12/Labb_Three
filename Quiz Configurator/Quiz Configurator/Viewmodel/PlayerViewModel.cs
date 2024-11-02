@@ -24,7 +24,7 @@ namespace Quiz_Configurator.Viewmodel
         public DelegateCommand CheckButtonCommand4 { get; }
         private int secondsOnly;
         private bool canPress = true;
-
+        private bool nextQuestion = false;
 
         private int _points;
         public int Points
@@ -415,18 +415,24 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
-        private void Timer_Tick(object? sender, EventArgs e)
+        private async void Timer_Tick(object? sender, EventArgs e)
         {
-            if (Index <= CurrentAmountOfQuestions)
+            if (Index <= CurrentAmountOfQuestions && !nextQuestion)
             {
+                nextQuestion = true; // Prevent re-entry
                 time = time.Add(TimeSpan.FromSeconds(-1));
                 int secondsOnly = (int)time.TotalSeconds;
                 Seconds = secondsOnly.ToString();
-                if(secondsOnly <= 0)
+
+                if (secondsOnly <= 0)
                 {
-                    if (Index < CurrentAmountOfQuestions) 
+                    HighlightCorrectAnswer();
+                    await Task.Delay(1000);
+
+                    if (Index < CurrentAmountOfQuestions)
                     {
                         Index++;
+                        ResetAllColors();
                         UpdateQuestions();
                         SetTimerValue();
                     }
@@ -435,6 +441,8 @@ namespace Quiz_Configurator.Viewmodel
                         mainWindowViewModel.SetEndScreen();
                     }
                 }
+
+                nextQuestion = false; 
             }
             RaiseProperyChanged();
         }

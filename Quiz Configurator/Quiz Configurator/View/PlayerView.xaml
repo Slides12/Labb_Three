@@ -127,7 +127,7 @@
                HorizontalAlignment="Right" 
                VerticalAlignment="Top" 
                Grid.Column="1"
-               Margin="30"/>
+               Margin="20"/>
 
     </Grid>
 </UserControl>
