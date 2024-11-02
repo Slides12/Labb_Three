@@ -419,7 +419,7 @@ namespace Quiz_Configurator.Viewmodel
         {
             if (Index <= CurrentAmountOfQuestions && !nextQuestion)
             {
-                nextQuestion = true; // Prevent re-entry
+                nextQuestion = true; 
                 time = time.Add(TimeSpan.FromSeconds(-1));
                 int secondsOnly = (int)time.TotalSeconds;
                 Seconds = secondsOnly.ToString();
@@ -460,6 +460,7 @@ namespace Quiz_Configurator.Viewmodel
         public void StopTimer()
         {
             timer.Stop();
+            mainWindowViewModel.PlayActive = false;
             SetTimerValue();
         }
 

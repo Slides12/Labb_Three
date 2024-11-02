@@ -44,6 +44,7 @@ namespace Quiz_Configurator.Viewmodel
                 _activeQuestion = value;
                 mainWindowViewModel.save.SaveData(mainWindowViewModel.Packs);
                 RaiseProperyChanged();
+                DeleteQuestionCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -51,12 +52,15 @@ namespace Quiz_Configurator.Viewmodel
         {
             this.mainWindowViewModel = mainWindowViewModel;
 
-            NewQuestionCommand = new DelegateCommand(NewQuestionButton);
-            DeleteQuestionCommand = new DelegateCommand(DeleteQuestionButton);
-            SetActiveQuestionCommand = new DelegateCommand(SetActiveQuestion);
-            PackOptionsCommand = new DelegateCommand(PackOptions);
+            NewQuestionCommand = new DelegateCommand(NewQuestionButton, mainWindowViewModel.CanPlay);
+            DeleteQuestionCommand = new DelegateCommand(DeleteQuestionButton, CanDeleteQuestion);
+            SetActiveQuestionCommand = new DelegateCommand(SetActiveQuestion, mainWindowViewModel.CanPlay);
+            PackOptionsCommand = new DelegateCommand(PackOptions, mainWindowViewModel.CanPlay);
 
         }
+
+        private bool CanDeleteQuestion(object? arg) => ActivePack?.Questions.Count > 0;
+
 
         private void PackOptions(object obj)
         {
@@ -78,6 +82,7 @@ namespace Quiz_Configurator.Viewmodel
 
             }
         }
+
 
         private void DeleteQuestionButton(object obj)
         {

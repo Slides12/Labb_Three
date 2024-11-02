@@ -21,7 +21,6 @@ namespace Quiz_Configurator.Viewmodel
         public Load load;
         public Import import;
 
-
         public DelegateCommand NewPackCommand { get; }
         public DelegateCommand SetActivePackCommand { get; }
         public DelegateCommand DeletePackCommand { get; }
@@ -51,10 +50,35 @@ namespace Quiz_Configurator.Viewmodel
                 _activePack = value;
                 RaiseProperyChanged();
                 ConfigurationViewModel?.RaiseProperyChanged("ActivePack");
+                ConfigurationViewModel.DeleteQuestionCommand.RaiseCanExecuteChanged();
+
             }
         }
 
+        public bool _playActive = false;
 
+        public bool PlayActive
+        {
+            get
+            {
+                return _playActive;
+            }
+            set
+            {
+                _playActive = value;
+
+                RaiseProperyChanged("PlayActive");
+
+                NewPackCommand.RaiseCanExecuteChanged();
+                SetActivePackCommand.RaiseCanExecuteChanged();
+                DeletePackCommand.RaiseCanExecuteChanged();
+                SetPlayerViewCommand.RaiseCanExecuteChanged();
+                ImportMenuCommand.RaiseCanExecuteChanged();
+                ConfigurationViewModel.NewQuestionCommand.RaiseCanExecuteChanged();
+                ConfigurationViewModel.SetActiveQuestionCommand.RaiseCanExecuteChanged();
+                ConfigurationViewModel.PackOptionsCommand.RaiseCanExecuteChanged();
+            }
+        }
 
 
         //Import
@@ -229,16 +253,16 @@ namespace Quiz_Configurator.Viewmodel
 
 
 
-            NewPackCommand = new DelegateCommand(AddPack);
-            SetActivePackCommand = new DelegateCommand(SetActivePack);
-            DeletePackCommand = new DelegateCommand(DeleteActivePack);
-            SetPlayerViewCommand = new DelegateCommand(SetPlayerView);
+            NewPackCommand = new DelegateCommand(AddPack, CanPlay);
+            SetActivePackCommand = new DelegateCommand(SetActivePack, CanPlay);
+            DeletePackCommand = new DelegateCommand(DeleteActivePack, CanPlay);
+            SetPlayerViewCommand = new DelegateCommand(SetPlayerView, CanPlay);
             SetConfigViewCommand = new DelegateCommand(SetConfigView);
             FullscreenCommand = new DelegateCommand(SetFullscreen);
 
             SaveOnCloseCommand = new DelegateCommand(SaveOnClose);
             ImportFromDBCommand = new DelegateCommand(async _ => await GetQuestions(ActivePack), _ => true);
-            ImportMenuCommand = new DelegateCommand(ImportMenu);
+            ImportMenuCommand = new DelegateCommand(ImportMenu, CanPlay);
             ExitCommand = new DelegateCommand(Exit);
 
             ConfigVisibility = Visibility.Visible;
@@ -252,6 +276,11 @@ namespace Quiz_Configurator.Viewmodel
             PlayerViewModel = new PlayerViewModel(this);
             ConfigurationViewModel = new ConfigurationViewModel(this);
         }
+
+
+        public bool CanPlay(object? arg) => PlayActive == false;
+
+
 
         private void SetFullscreen(object obj)
         {
@@ -302,7 +331,7 @@ namespace Quiz_Configurator.Viewmodel
             PlayerVisibility = Visibility.Hidden;
             EndScreenVisibility = Visibility.Hidden;
             PlayerViewModel.StopTimer();
-
+            PlayActive = false;
             RaiseProperyChanged(nameof(ConfigVisibility));
             RaiseProperyChanged(nameof(PlayerVisibility));
             RaiseProperyChanged(nameof(EndScreenVisibility));
@@ -310,7 +339,10 @@ namespace Quiz_Configurator.Viewmodel
 
         private void SetPlayerView(object obj)
         {
-            if(ActivePack.Questions.Count > 0) { 
+            if (!PlayActive)
+            {
+                PlayActive = true;
+            if (ActivePack.Questions.Count > 0) { 
             ConfigVisibility = Visibility.Hidden;
             PlayerVisibility = Visibility.Visible;
             EndScreenVisibility = Visibility.Hidden;
@@ -325,6 +357,8 @@ namespace Quiz_Configurator.Viewmodel
             {
                 MessageBox.Show("You currently have no questions in this packs. Add questions or choose another pack.");
             }
+            }
+
         }
 
         public void SetEndScreen()
