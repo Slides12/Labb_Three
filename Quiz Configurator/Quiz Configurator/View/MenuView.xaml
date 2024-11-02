@@ -125,7 +125,8 @@
                     <MenuItem x:Name="fullscreenMenu" 
                         Header="_Fullscreen" 
                           InputGestureText="Alt+Enter"
-                              Icon="{fa:Icon expand}"/>
+                              Icon="{fa:Icon expand}"
+                              Command="{Binding FullscreenCommand}"/>
 
 
                 </MenuItem>
