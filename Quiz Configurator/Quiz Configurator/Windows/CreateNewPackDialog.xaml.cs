@@ -11,8 +11,7 @@ namespace Quiz_Configurator.Windows
         public CreateNewPackDialog()
         {
             InitializeComponent();
-            comboBox.ItemsSource = Enum.GetValues(typeof(Difficulty)).Cast<Difficulty>().ToList();
-            comboBox.SelectedIndex = 1;
+           
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)

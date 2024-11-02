@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Quiz_Configurator.Windows"
         mc:Ignorable="d"
-        Title="Import Questions From Open Trivia Database" Height="250" Width="300" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        Title="Import Questions From Open Trivia Database" Height="250" Width="300" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterOwner">
     <Grid>
         <StackPanel Margin="10 0 10 10" Grid.ColumnSpan="3">
             <Label Content="Category:" FontWeight="Bold"/>

@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
+    
+    <!--Hide button hover-->
     <UserControl.Resources>
         <Style x:Key="MyButtonStyle" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -118,7 +120,14 @@
         </StackPanel>
 
         <!--Timer-->
-        <Label Content="{Binding PlayerViewModel.Seconds, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="{Binding PlayerViewModel.Seconds, 
+                                 UpdateSourceTrigger=PropertyChanged}" 
+               FontWeight="Bold" 
+               FontSize="30" 
+               HorizontalAlignment="Right" 
+               VerticalAlignment="Top" 
+               Grid.Column="1"
+               Margin="30"/>
 
     </Grid>
 </UserControl>

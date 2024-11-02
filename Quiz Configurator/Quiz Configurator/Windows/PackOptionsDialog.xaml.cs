@@ -12,8 +12,7 @@ namespace Quiz_Configurator.Windows
         public PackOptionsDialog()
         {
             InitializeComponent();
-            comboBox.ItemsSource = Enum.GetValues(typeof(Difficulty)).Cast<Difficulty>().ToList();
-            comboBox.SelectedIndex = 1;
+            
         }
     }
 }

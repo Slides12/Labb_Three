@@ -1,6 +1,6 @@
 ﻿namespace Quiz_Configurator.Model
 {
-    enum Difficulty { Easy, Medium, Hard }
+    public enum Difficulty { Easy, Medium, Hard }
 
     class QuestionPack
     {

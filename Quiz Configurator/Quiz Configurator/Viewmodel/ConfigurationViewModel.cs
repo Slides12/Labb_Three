@@ -18,6 +18,21 @@ namespace Quiz_Configurator.Viewmodel
 
 
 
+        private Difficulty _difficulty;
+        public Difficulty Difficulty
+        {
+            get
+            {
+                return _difficulty;
+            }
+            set
+            {
+                _difficulty = value;
+                
+                RaiseProperyChanged("Difficulty");
+            }
+        }
+
 
         private Question? _activeQuestion;
 
@@ -49,7 +64,7 @@ namespace Quiz_Configurator.Viewmodel
 
             packOptionsDialog.ShowDialog();
 
-            ActivePack.Difficulty = (Difficulty)packOptionsDialog.comboBox.SelectedItem;
+            Difficulty = ActivePack.Difficulty;
 
         }
 
