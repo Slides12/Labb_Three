@@ -29,6 +29,7 @@ namespace Quiz_Configurator.Viewmodel
         public DelegateCommand SaveOnCloseCommand { get; }
         public DelegateCommand ImportFromDBCommand { get; }
         public DelegateCommand ImportMenuCommand { get; }
+        public DelegateCommand FullscreenCommand { get; }
         public DelegateCommand ExitCommand { get; }
 
 
@@ -233,6 +234,7 @@ namespace Quiz_Configurator.Viewmodel
             DeletePackCommand = new DelegateCommand(DeleteActivePack);
             SetPlayerViewCommand = new DelegateCommand(SetPlayerView);
             SetConfigViewCommand = new DelegateCommand(SetConfigView);
+            FullscreenCommand = new DelegateCommand(SetFullscreen);
 
             SaveOnCloseCommand = new DelegateCommand(SaveOnClose);
             ImportFromDBCommand = new DelegateCommand(async _ => await GetQuestions(ActivePack), _ => true);
@@ -249,6 +251,20 @@ namespace Quiz_Configurator.Viewmodel
 
             PlayerViewModel = new PlayerViewModel(this);
             ConfigurationViewModel = new ConfigurationViewModel(this);
+        }
+
+        private void SetFullscreen(object obj)
+        {
+            if (Application.Current.MainWindow.WindowState == WindowState.Normal)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+
+            }
+            else
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+
+            }
         }
 
         private void Exit(object obj)
