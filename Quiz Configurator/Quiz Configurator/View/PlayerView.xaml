@@ -6,6 +6,34 @@
              xmlns:local="clr-namespace:Quiz_Configurator.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="DarkGray" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -35,17 +63,25 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Right">
                 <Button Width="220" Height="80"
                         Margin="10"
-                        Command="{Binding PlayerViewModel.CheckButtonCommand}"
+                        Background="{Binding PlayerViewModel.QuestionColor1}"
+                        Style="{StaticResource MyButtonStyle}"
+                        Command="{Binding PlayerViewModel.CheckButtonCommand1}"
                         CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                <TextBlock Text="{Binding PlayerViewModel.CorrectQuestion}"
+                <TextBlock Text="{Binding PlayerViewModel.Question1}"
+                           Width="200"
+                           Height="70"
                            TextWrapping="Wrap"
                            TextAlignment="Center"/>
             </Button>
             <Button Width="220" Height="80"
                         Margin="10"
-                        Command="{Binding PlayerViewModel.CheckButtonCommand}"
+                    Background="{Binding PlayerViewModel.QuestionColor2}"
+                    Style="{StaticResource MyButtonStyle}"
+                        Command="{Binding PlayerViewModel.CheckButtonCommand2}"
                         CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                <TextBlock Text="{Binding PlayerViewModel.WrongQuestion1}"
+                <TextBlock Text="{Binding PlayerViewModel.Question2}"
+                           Width="200"
+                           Height="70"
                            TextWrapping="Wrap"
                            TextAlignment="Center"/>
             </Button>
@@ -56,18 +92,26 @@
             
                 <Button Width="220" Height="80"
                         Margin="10"
-                        Command="{Binding PlayerViewModel.CheckButtonCommand}"
+                        Background="{Binding PlayerViewModel.QuestionColor3}"
+                        Style="{StaticResource MyButtonStyle}"
+                        Command="{Binding PlayerViewModel.CheckButtonCommand3}"
                         CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                <TextBlock Text="{Binding PlayerViewModel.WrongQuestion2}"
+                <TextBlock Text="{Binding PlayerViewModel.Question3}"
+                           Width="200"
+                           Height="70"
                            TextWrapping="Wrap"
                            TextAlignment="Center"/>
             </Button>
             
                 <Button Width="220" Height="80"
                         Margin="10"
-                        Command="{Binding PlayerViewModel.CheckButtonCommand}"
+                        Background="{Binding PlayerViewModel.QuestionColor4}"
+                        Style="{StaticResource MyButtonStyle}"
+                        Command="{Binding PlayerViewModel.CheckButtonCommand4}"
                         CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
-                <TextBlock Text="{Binding PlayerViewModel.WrongQuestion3}"
+                <TextBlock Text="{Binding PlayerViewModel.Question4}"
+                           Width="200"
+                           Height="70"
                            TextWrapping="Wrap"
                            TextAlignment="Center"/>
             </Button>
