@@ -50,8 +50,9 @@ namespace Quiz_Configurator.Viewmodel
                 _activePack = value;
                 RaiseProperyChanged();
                 ConfigurationViewModel?.RaiseProperyChanged("ActivePack");
+                if(ConfigurationViewModel != null) { 
                 ConfigurationViewModel.DeleteQuestionCommand.RaiseCanExecuteChanged();
-
+                }
             }
         }
 
@@ -287,7 +288,7 @@ namespace Quiz_Configurator.Viewmodel
             if (Application.Current.MainWindow.WindowState == WindowState.Normal)
             {
                 Application.Current.MainWindow.WindowState = WindowState.Maximized;
-
+                
             }
             else
             {
@@ -298,6 +299,7 @@ namespace Quiz_Configurator.Viewmodel
 
         private void Exit(object obj)
         {
+            save.SaveData(Packs);
             Application.Current.Shutdown();
         }
 
@@ -396,6 +398,7 @@ namespace Quiz_Configurator.Viewmodel
             {
                 QuestionPackViewModel qp = new QuestionPackViewModel(new QuestionPack(PackName, PackDifficulty, PackTimeLimit));
                 ActivePack = qp;
+                ConfigurationViewModel.Difficulty = ActivePack.Difficulty;
                 Packs.Add(qp);
                 save.SaveData(Packs);
             }

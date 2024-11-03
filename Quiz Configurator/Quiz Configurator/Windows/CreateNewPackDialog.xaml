@@ -25,6 +25,7 @@
             <ComboBox x:Name="comboBox" 
                       ItemsSource="{Binding Source={StaticResource DifficultyEnumProvider}}"
                       SelectedIndex="1"
+                      SelectedItem="{Binding PackDifficulty, Mode=TwoWay}"
                 />
 
             <DockPanel >
