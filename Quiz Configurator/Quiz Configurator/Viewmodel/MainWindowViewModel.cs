@@ -344,22 +344,25 @@ namespace Quiz_Configurator.Viewmodel
             if (!PlayActive)
             {
                 PlayActive = true;
-            if (ActivePack.Questions.Count > 0) { 
-            ConfigVisibility = Visibility.Hidden;
-            PlayerVisibility = Visibility.Visible;
-            EndScreenVisibility = Visibility.Hidden;
-            PlayerViewModel.CurrentAmountOfQuestions = ActivePack.Questions.Count();
-            PlayerViewModel.StartGame();
+                if (ActivePack.Questions.Count > 0) { 
+                ConfigVisibility = Visibility.Hidden;
+                PlayerVisibility = Visibility.Visible;
+                EndScreenVisibility = Visibility.Hidden;
+                PlayerViewModel.CurrentAmountOfQuestions = ActivePack.Questions.Count();
+                PlayerViewModel.StartGame();
             
-            RaiseProperyChanged(nameof(ConfigVisibility));
-            RaiseProperyChanged(nameof(PlayerVisibility));
-            RaiseProperyChanged(nameof(EndScreenVisibility));
+                RaiseProperyChanged(nameof(ConfigVisibility));
+                RaiseProperyChanged(nameof(PlayerVisibility));
+                RaiseProperyChanged(nameof(EndScreenVisibility));
+                }
+                else
+                {
+                    SetConfigView(obj);
+
+                    MessageBox.Show("You currently have no questions in this packs. Add questions or choose another pack.");
+                }
             }
-            else
-            {
-                MessageBox.Show("You currently have no questions in this packs. Add questions or choose another pack.");
-            }
-            }
+            
 
         }
 

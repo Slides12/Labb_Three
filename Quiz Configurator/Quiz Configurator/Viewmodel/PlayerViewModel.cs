@@ -459,9 +459,12 @@ namespace Quiz_Configurator.Viewmodel
 
         public void StopTimer()
         {
+            if(timer != null)
+            { 
             timer.Stop();
             mainWindowViewModel.PlayActive = false;
             SetTimerValue();
+            }
         }
 
         public void SetTimerValue()
