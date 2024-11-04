@@ -67,9 +67,10 @@ namespace Quiz_Configurator.Viewmodel
             PackOptionsDialog packOptionsDialog = new PackOptionsDialog() {DataContext = this};
 
             packOptionsDialog.ShowDialog();
-
+            if(ActivePack != null)
+            { 
             Difficulty = ActivePack.Difficulty;
-
+            }
         }
 
         private void SetActiveQuestion(object obj)
