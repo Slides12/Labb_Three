@@ -411,6 +411,7 @@ namespace Quiz_Configurator.Viewmodel
 
         private async void ImportMenu(object obj)
         {
+            if(CategoriesList.Count > 0) { 
             _selectedCategory = CategoriesList[0];
 
             ImportQuestions createNewImportDialog = new ImportQuestions() {DataContext = this};
@@ -421,6 +422,7 @@ namespace Quiz_Configurator.Viewmodel
             if (result == true)
             {
                 await GetQuestions(ActivePack, NumberOfQuestions, Category, DownloadDifficulty);   
+            }
             }
         }
        
