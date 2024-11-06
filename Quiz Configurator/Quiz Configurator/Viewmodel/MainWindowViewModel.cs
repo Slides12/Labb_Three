@@ -248,7 +248,6 @@ namespace Quiz_Configurator.Viewmodel
             load = new Load();
             save = new Save();
             import = new Import();
-            CategoriesList = new ObservableCollection<Category>();
             GetCategorys();
             LoadAsync();
 
@@ -484,6 +483,8 @@ namespace Quiz_Configurator.Viewmodel
 
         public async Task GetCategorys()
         {
+            CategoriesList = new ObservableCollection<Category>();
+
             Import import = new Import();
             string triviaCategories = await import.ImportCategorysAsync();
 
