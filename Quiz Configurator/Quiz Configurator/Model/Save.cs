@@ -20,10 +20,10 @@ namespace Quiz_Configurator.Model
             string directoryPath = Path.Combine(path, "QuizConfigurator");
             string filePath = Path.Combine(directoryPath, "QuizConfig.json");
 
-            if (!Directory.Exists(directoryPath))
-            {
-                Directory.CreateDirectory(directoryPath);
-            }
+        if (!Directory.Exists(directoryPath))
+        {
+            Directory.CreateDirectory(directoryPath);
+        }
 
             using (StreamWriter sw = new StreamWriter(filePath))
             {

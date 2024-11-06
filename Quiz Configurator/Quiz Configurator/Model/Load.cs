@@ -30,13 +30,13 @@ namespace Quiz_Configurator.Model
                     string jsonContent = await sr.ReadToEndAsync();
                     var questionPacks = JsonSerializer.Deserialize<List<QuestionPack>>(jsonContent);
 
-                    if (questionPacks != null)
+                if (questionPacks != null)
+                {
+                    foreach (var questionPack in questionPacks)
                     {
-                        foreach (var questionPack in questionPacks)
-                        {
-                            Packs.Add(new QuestionPackViewModel(questionPack));
-                        }
+                        Packs.Add(new QuestionPackViewModel(questionPack));
                     }
+                }
                 }
             }
 
