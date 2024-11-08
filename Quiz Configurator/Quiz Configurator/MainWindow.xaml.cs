@@ -14,9 +14,6 @@ namespace Quiz_Configurator
             DataContext = new MainWindowViewModel();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            (DataContext as MainWindowViewModel).SaveOnCloseCommand.Execute(this);
-        }
+    
     }
 }

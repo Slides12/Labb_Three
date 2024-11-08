@@ -300,7 +300,7 @@ namespace Quiz_Configurator.Viewmodel
 
         private void Exit(object obj)
         {
-            SaveOnClose(obj);
+            
             Application.Current.Shutdown();
         }
 
@@ -424,8 +424,10 @@ namespace Quiz_Configurator.Viewmodel
 
             if (result == true)
             {
-                await GetQuestions(ActivePack, NumberOfQuestions, Category, DownloadDifficulty);   
-            }
+                await GetQuestions(ActivePack, NumberOfQuestions, Category, DownloadDifficulty);
+                save.SaveData(Packs);
+
+                }
             }
         }
        

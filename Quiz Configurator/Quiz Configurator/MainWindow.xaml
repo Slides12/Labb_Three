@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quiz_Configurator" xmlns:view="clr-namespace:Quiz_Configurator.View"
         mc:Ignorable="d"
-        Title="Quiz Configurator" Height="500" Width="800" MinHeight="450" MinWidth="700" Closing="Window_Closing" Icon="/Assets/icon.ico" Background="GhostWhite">
+        Title="Quiz Configurator" Height="500" Width="800" MinHeight="450" MinWidth="700" Icon="/Assets/icon.ico" Background="GhostWhite">
     <Window.InputBindings>
         <KeyBinding Key="P" Modifiers="Ctrl" Command="{Binding SetPlayerViewCommand}"/>
         <KeyBinding Key="E" Modifiers="Ctrl" Command="{Binding SetConfigViewCommand}"/>
