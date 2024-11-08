@@ -245,7 +245,6 @@ namespace Quiz_Configurator.Viewmodel
 
         public MainWindowViewModel()
         {
-            Application.Current.Exit += OnApplicationExit;
             load = new Load();
             save = new Save();
             import = new Import();
@@ -297,16 +296,11 @@ namespace Quiz_Configurator.Viewmodel
             }
         }
 
-        private async void OnApplicationExit(object sender, ExitEventArgs e)
-        {
-            if (Packs != null && Packs.Count > 0)
-            {
-                await save.SaveData(Packs); 
-            }
-        }
+      
 
         private void Exit(object obj)
         {
+            SaveOnClose(obj);
             Application.Current.Shutdown();
         }
 
