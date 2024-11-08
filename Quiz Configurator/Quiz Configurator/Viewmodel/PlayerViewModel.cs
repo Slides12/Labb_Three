@@ -10,6 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using System.Windows.Controls;
 using System.Drawing;
 using System.Windows.Media;
+using System.Collections.ObjectModel;
 
 
 namespace Quiz_Configurator.Viewmodel
@@ -25,6 +26,8 @@ namespace Quiz_Configurator.Viewmodel
         private int secondsOnly;
         private bool canPress = true;
         private bool nextQuestion = false;
+
+        public ObservableCollection<Question> randomQuestions;
 
         private int _points;
         public int Points
@@ -253,7 +256,7 @@ namespace Quiz_Configurator.Viewmodel
             {
                 if (canPress) 
                 { 
-                    if((button.Content as TextBlock).Text.Equals(ActivePack.Questions[Index - 1].CorrectAnswer))
+                    if((button.Content as TextBlock).Text.Equals(randomQuestions[Index - 1].CorrectAnswer))
                     {
                         QuestionColor1 = new SolidColorBrush(Colors.LightGreen);
                         canPress = false;
@@ -283,7 +286,7 @@ namespace Quiz_Configurator.Viewmodel
             {
                 if (canPress)
                 {
-                    if ((button.Content as TextBlock).Text.Equals(ActivePack.Questions[Index - 1].CorrectAnswer))
+                    if ((button.Content as TextBlock).Text.Equals(randomQuestions[Index - 1].CorrectAnswer))
                     {
                         QuestionColor2 = new SolidColorBrush(Colors.LightGreen);
                         canPress = false;
@@ -313,7 +316,7 @@ namespace Quiz_Configurator.Viewmodel
             {
                 if (canPress)
                 {
-                    if ((button.Content as TextBlock).Text.Equals(ActivePack.Questions[Index - 1].CorrectAnswer))
+                    if ((button.Content as TextBlock).Text.Equals(randomQuestions[Index - 1].CorrectAnswer))
                     {
                         QuestionColor3 = new SolidColorBrush(Colors.LightGreen);
                         canPress = false;
@@ -343,7 +346,7 @@ namespace Quiz_Configurator.Viewmodel
             {
                 if (canPress)
                 {
-                    if ((button.Content as TextBlock).Text.Equals(ActivePack.Questions[Index - 1].CorrectAnswer))
+                    if ((button.Content as TextBlock).Text.Equals(randomQuestions[Index - 1].CorrectAnswer))
                     {
                         QuestionColor4 = new SolidColorBrush(Colors.LightGreen);
                         canPress = false;
@@ -370,7 +373,7 @@ namespace Quiz_Configurator.Viewmodel
         private void HighlightCorrectAnswer()
         {
             
-                string correctAnswer = ActivePack.Questions[Index - 1].CorrectAnswer;
+                string correctAnswer = randomQuestions[Index - 1].CorrectAnswer;
                 if (correctAnswer.Equals(Question1))
                 {
                     QuestionColor1 = new SolidColorBrush(Colors.LightGreen);
@@ -478,6 +481,7 @@ namespace Quiz_Configurator.Viewmodel
 
         public void StartGame()
         {
+            randomQuestions = SetQuestionsRandomly(ActivePack?.Questions);
             Index = 1;
             Points = 0;
             UpdateQuestions();
@@ -485,33 +489,45 @@ namespace Quiz_Configurator.Viewmodel
             StartTimer();
         }
 
-        public List<string> SetQuestionsRandomly(string correct, string wrong1, string wrong2, string wrong3)
+        public List<string> SetQuestionsAnswersRandom(string correct, string wrong1, string wrong2, string wrong3)
         {
             string[] strings = new string[4] {correct,wrong1,wrong2,wrong3};
 
             Random rng = new Random();
 
-            var randomizeQuestions = strings.OrderBy(_ => rng.Next()).ToList();
+            var randomizeAnswers = strings.OrderBy(_ => rng.Next()).ToList();
 
-            return randomizeQuestions;
+            return randomizeAnswers;
+        }
+
+          public ObservableCollection<Question> SetQuestionsRandomly(ObservableCollection<Question> questions)
+        {
+
+            Random rng = new Random();
+
+            var randomizeQuestions = questions.OrderBy(_ => rng.Next()).ToList();
+
+            ObservableCollection<Question> list = new ObservableCollection<Question>(randomizeQuestions);
+
+            return list;
         }
 
         private void UpdateQuestions()
         {
-            CorrectQuestion = ActivePack.Questions[Index - 1].CorrectAnswer;
-            List<string> strings = SetQuestionsRandomly
+            CorrectQuestion = randomQuestions[Index - 1].CorrectAnswer;
+            List<string> strings = SetQuestionsAnswersRandom
                 (
-                CorrectQuestion, 
-                ActivePack.Questions[Index - 1].IncorrectAnswers[0], 
-                ActivePack.Questions[Index - 1].IncorrectAnswers[1], 
-                ActivePack.Questions[Index - 1].IncorrectAnswers[2]
+                CorrectQuestion,
+                randomQuestions[Index - 1].IncorrectAnswers[0],
+                randomQuestions[Index - 1].IncorrectAnswers[1],
+                randomQuestions[Index - 1].IncorrectAnswers[2]
                 );
 
 
 
             if (ActivePack != null && ActivePack.Questions.Count > 0) 
             { 
-            Query = ActivePack.Questions[Index - 1].Query;
+            Query = randomQuestions[Index - 1].Query;
             Question1 = strings[0];
             Question2 = strings[1];
             Question3 = strings[2];
