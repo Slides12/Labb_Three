@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Daniel\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\
 Quiz_Configurator
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Daniel\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\App.xaml
-8-119970416
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\App.xaml
+9-1707303687
 
-281393121615
-2081848534375
-MainWindow.xaml;View\ConfigurationView.xaml;View\EndScreen.xaml;View\MenuView.xaml;View\PlayerView.xaml;Windows\CreateNewPackDialog.xaml;Windows\ImportQuestions.xaml;Windows\PackOptionsDialog.xaml;
+292113139609
+208547114952
+MainWindow.xaml;View\ConfigurationView.xaml;View\EndScreen.xaml;View\MenuView.xaml;View\PlayerView.xaml;View\UserNameView.xaml;Windows\CreateNewPackDialog.xaml;Windows\ImportQuestions.xaml;Windows\PackOptionsDialog.xaml;
 
-True
+False
 

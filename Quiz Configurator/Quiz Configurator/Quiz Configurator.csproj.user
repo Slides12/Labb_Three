@@ -19,6 +19,9 @@
     <Compile Update="View\PlayerView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\UserNameView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\CreateNewPackDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\PlayerView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserNameView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\CreateNewPackDialog.xaml">

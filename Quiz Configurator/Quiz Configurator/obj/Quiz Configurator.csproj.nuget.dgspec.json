@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Daniel\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj": {}
+    "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Daniel\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj": {
+    "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Daniel\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj",
+        "projectUniqueName": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj",
         "projectName": "Quiz Configurator",
-        "projectPath": "C:\\Users\\Daniel\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj",
-        "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Daniel\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\obj\\",
+        "projectPath": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj",
+        "packagesPath": "C:\\Users\\djoha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\djoha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

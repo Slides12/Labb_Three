@@ -78,3 +78,5 @@ C:\Users\Daniel\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\
 C:\Users\Daniel\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.pdb
 C:\Users\Daniel\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\Quiz Configurator.genruntimeconfig.cache
 C:\Users\Daniel\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\ref\Quiz Configurator.dll
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\UserNameView.g.cs
+C:\Users\djoha\source\repos\Labb_Three\Quiz Configurator\Quiz Configurator\obj\Debug\net8.0-windows\View\UserNameView.baml

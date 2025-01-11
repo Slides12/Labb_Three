@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "A2K6X8F+tM4=",
+  "dgSpecHash": "bjCz1VNdsr8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Daniel\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj",
+  "projectFilePath": "C:\\Users\\djoha\\source\\repos\\Labb_Three\\Quiz Configurator\\Quiz Configurator\\Quiz Configurator.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Daniel\\.nuget\\packages\\fontawesome.sharp\\6.6.0\\fontawesome.sharp.6.6.0.nupkg.sha512"
+    "C:\\Users\\djoha\\.nuget\\packages\\fontawesome.sharp\\6.6.0\\fontawesome.sharp.6.6.0.nupkg.sha512"
   ],
   "logs": []
 }
